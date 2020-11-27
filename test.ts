@@ -40,12 +40,3 @@ control.runInParallel(function() {
         } 
     }
 })
-
-control.runInParallel(function() {
-    socket.open("wss://echo.websocket.org")
-    socket.onStringMessageReceived(msg => console.log(`socket ${msg}`));
-    forever(function() {
-        socket.sendString('hello')
-        pause(500)
-    })
-})

@@ -1,7 +1,7 @@
  
  > Open this page at [https://pelikhan.github.io/pxt-sockets/](https://pelikhan.github.io/pxt-sockets/)
 
-This extension allows to interact with Web Sockets and Arcade games.
+This extension allows to interact with Web Sockets and Arcade games. **Talking to Web Sockets will only work in GitHub Pages!**
 
 ## Use as Extension
 
