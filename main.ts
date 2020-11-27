@@ -147,7 +147,6 @@ class WebSocket extends EventTarget {
             this._readyState = WebSocket.OPEN;
             this.dispatchEvent(new Event(OPEN_EVENT_TYPE));
         } else if ((type & MESSAGE_MESSAGE) === MESSAGE_MESSAGE) {
-            console.log(`handle message`)
             if (this._readyState !== WebSocket.OPEN)
                 throw "socket not open"
 
