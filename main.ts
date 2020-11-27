@@ -146,13 +146,16 @@ class WebSocket extends EventTarget {
     }
 
     private handleMessage(msg: Buffer) {
-        const type = msg[0] & (1 << 4); // mask
+        console.log(msg.toString())
+        const type = msg[0];
         const id= msg[1];
 
-        if (id !== this._id)
+        if (id !== this._id) {
+            console.log(`different socket`)
             return; // not for us
+        }
 
-        if (type === MESSAGE_MESSAGE) {
+        if ((type & MESSAGE_MESSAGE) === MESSAGE_MESSAGE) {
             const isString = (msg[1] & STRING_DATA) == STRING_DATA;
             const dataBuffer = msg.slice(4);
             const data = isString ? dataBuffer.toString() : dataBuffer;
