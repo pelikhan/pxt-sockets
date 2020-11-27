@@ -1,3 +1,4 @@
+game.consoleOverlay.setVisible(true)
 control.runInParallel(function() {
     console.log(`connecting to https://www.wss-websocket.net/`)
     const ws = new WebSocket("https://www.wss-websocket.net/")
