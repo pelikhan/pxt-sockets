@@ -122,12 +122,13 @@ class WebSocket extends EventTarget {
         this.registerHandlers();
         this._readyState = WebSocket.CLOSED;
 
-        // try to connect
+        this.registerHandlers();
         this.open();
     }
 
     private registerHandlers() {
-        control.simmessages.onReceived(CHANNEL, function(msg: Buffer) {
+        console.log(`register`)
+        control.simmessages.onReceived(CHANNEL, (msg: Buffer) => {
             this.handleMessage(msg);
         })
     }
