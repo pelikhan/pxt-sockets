@@ -91,6 +91,7 @@ class MessageEvent extends Event {
 }
 
 // keep in sync with JS
+const CHANNEL = "wss"
 const SEND_MESSAGE = 1 << 0;
 const CLOSE_MESSAGE = 1 << 1;
 const MESSAGE_MESSAGE = 1 << 2;
@@ -98,7 +99,6 @@ const OPEN_MESSAGE = 1 << 3;
 const ERROR_MESSAGE = 1 << 4;
 const STRING_DATA = 1 << 5;
 const BUFFER_DATA = 1 << 6;
-
 
 class Transport {        
     constructor(
@@ -111,11 +111,8 @@ let transport: Transport;
 function getTransport(): Transport {
     if (!transport) {
         transport = new Transport(
-            (msg) => control.simmessages.send("wss", msg),
-            (handler) => control.simmessages.onReceived("wss", function(msg: Buffer) {
-                if (handler)
-                    handler(msg);
-            })
+            (msg) => control.simmessages.send(CHANNEL, msg),
+            (handler) => control.simmessages.onReceived(CHANNEL, handler)
         );         
     }
     return transport;
