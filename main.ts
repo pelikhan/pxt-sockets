@@ -162,11 +162,12 @@ class WebSocket extends EventTarget {
             this.dispatchEvent(new Event(OPEN_EVENT_TYPE));
             return;
         } else if ((type & MESSAGE_MESSAGE) === MESSAGE_MESSAGE) {
+            console.log(`handle message`)
             if (this._readyState !== WebSocket.OPEN)
                 throw "socket not open"
 
-            const isString = (msg[1] & STRING_DATA) == STRING_DATA;
-            const dataBuffer = msg.slice(4);
+            const isString = (type & STRING_DATA) == STRING_DATA;
+            const dataBuffer = msg.slice(2);
             const data = isString ? dataBuffer.toString() : dataBuffer;
             this.dispatchEvent(new MessageEvent(data));
         } else if (type === CLOSE_MESSAGE) {
