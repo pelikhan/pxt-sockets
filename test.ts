@@ -3,6 +3,7 @@ control.runInParallel(function() {
     console.log(`connecting to https://www.websocket.org/echo.html`)
     const ws = new WebSocket("wss://echo.websocket.org")
     console.log(`socket state: ${ws.readyState}`)
+    ws.onerror = () => console.log("error")
     ws.onmessage = (msg) => {
         const data = msg.data;
         console.log(`message ${typeof data}`)

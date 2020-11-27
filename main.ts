@@ -90,12 +90,15 @@ class MessageEvent extends Event {
     }
 }
 
+// keep in sync with JS
 const SEND_MESSAGE = 1 << 0;
 const CLOSE_MESSAGE = 1 << 1;
 const MESSAGE_MESSAGE = 1 << 2;
 const OPEN_MESSAGE = 1 << 3;
-const STRING_DATA = 1 << 2;
-const BUFFER_DATA = 1 << 3;    
+const ERROR_MESSAGE = 1 << 4;
+const STRING_DATA = 1 << 5;
+const BUFFER_DATA = 1 << 6;
+
 
 class Transport {        
     constructor(
@@ -143,16 +146,16 @@ class WebSocket extends EventTarget {
     }
 
     private handleMessage(msg: Buffer) {
-        const type = msg[0];
+        const type = msg[0] & (1 << 4); // mask
         const id= msg[1];
 
         if (id !== this._id)
             return; // not for us
 
         if (type === MESSAGE_MESSAGE) {
-            const dataType = msg[2];
+            const isString = (msg[1] & STRING_DATA) == STRING_DATA;
             const dataBuffer = msg.slice(4);
-            const data = dataType === STRING_DATA ? dataBuffer.toString() : dataBuffer;
+            const data = isString ? dataBuffer.toString() : dataBuffer;
             this.dispatchEvent(new MessageEvent(data));
         } else if (type === OPEN_MESSAGE) {
             this._id = id;
@@ -163,6 +166,8 @@ class WebSocket extends EventTarget {
             const code = msg.getNumber(NumberFormat.UInt32LE, 2);
             this._readyState = WebSocket.CLOSED;
             this.dispatchEvent(new CloseEvent(code));
+        } else if (type === ERROR_MESSAGE) {
+            this.dispatchEvent(new Event(ERROR_EVENT_TYPE));
         }
     }
 
