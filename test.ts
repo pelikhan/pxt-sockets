@@ -1,7 +1,7 @@
 game.consoleOverlay.setVisible(true)
 control.runInParallel(function() {
-    console.log(`connecting to https://www.wss-websocket.net/`)
-    const ws = new WebSocket("https://www.wss-websocket.net/")
+    console.log(`connecting to wss://www.wss-websocket.net/`)
+    const ws = new WebSocket("wss://www.wss-websocket.net/")
     console.log(`socket state: ${ws.readyState}`)
     ws.onmessage = (msg) => {
         const data = msg.data;
