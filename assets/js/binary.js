@@ -1,5 +1,5 @@
-// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.2.10/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.18","target":"arcade","targetVersion":"1.2.10","repo":"pelikhan/pxt-sockets"}
-// total=1201856 new=10.38% cached=84.03% other=5.58%
+// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.2.10/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.19","target":"arcade","targetVersion":"1.2.10","repo":"pelikhan/pxt-sockets"}
+// total=1200784 new=10.30% cached=84.11% other=5.59%
 (function (ectx) {
 'use strict';
 const runtime = ectx.runtime;
@@ -401,7 +401,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P574113(s) {
+function _main___P576849(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -776,7 +776,7 @@ switch (step) {
     s.callLocIdx = 61; s.pc = 33; return s.tmp_0;
   case 33:
     r0 = s.retval;
-    r0 = pxsim.control.runInParallel(inline__P573424);
+    r0 = pxsim.control.runInParallel(inline__P576419);
     globals.OPEN_EVENT_TYPE___568004 = ("open");
     globals.CLOSE_EVENT_TYPE___568006 = ("close");
     globals.MESSAGE_EVENT_TYPE___567985 = ("message");
@@ -789,13 +789,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P574113.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
-_main___P574113.continuations = [  ]
+_main___P576849.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
+_main___P576849.continuations = [  ]
 
-function _main___P574113_mk(s) {
+function _main___P576849_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P574113, depth: s.depth + 1,
+        parent: s, fn: _main___P576849, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -1382,7 +1382,7 @@ function inline__P4345_mk(s) {
 
 
 
-function inline__P573424(s) {
+function inline__P576419(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1392,8 +1392,8 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.ws___573426 = undefined;
-    s.ws___573483 = undefined;
+    s.ws___576421 = undefined;
+    s.ws___576462 = undefined;
     s.tmp_0 = console_log__P369_mk(s);
     s.tmp_0.arg0 = "connecting to https://www.websocket.org/echo.html";
     s.callLocIdx = 62; s.pc = 1; return s.tmp_0;
@@ -1407,80 +1407,85 @@ switch (step) {
     s.callLocIdx = 63; s.pc = 2; return s.tmp_1;
   case 2:
     r0 = s.retval;
-    s.ws___573426 = (s.tmp_0);
+    s.ws___576421 = (s.tmp_0);
     s.tmp_0 = WebSocket_onerror__P567974_mk(s);
-    s.tmp_0.arg0 = s.ws___573426;
-    s.tmp_0.arg1 = inline__P573431;
+    s.tmp_0.arg0 = s.ws___576421;
+    s.tmp_0.arg1 = inline__P576426;
     s.callLocIdx = 65; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
     s.tmp_0 = WebSocket_onmessage__P567976_mk(s);
-    s.tmp_0.arg0 = s.ws___573426;
-    s.tmp_0.arg1 = inline__P573435;
+    s.tmp_0.arg0 = s.ws___576421;
+    s.tmp_0.arg1 = inline__P576430;
     s.callLocIdx = 67; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, inline__P573447);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P576442);
     s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.ws___573426);
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.ws___576421);
     s.tmp_1 = WebSocket_onopen__P567978_mk(s);
-    s.tmp_1.arg0 = s.ws___573426;
+    s.tmp_1.arg0 = s.ws___576421;
     s.tmp_1.arg1 = s.tmp_0;
-    s.callLocIdx = 76; s.pc = 5; return s.tmp_1;
+    s.callLocIdx = 72; s.pc = 5; return s.tmp_1;
   case 5:
+    r0 = s.retval;
+    s.tmp_0 = pause__P402_mk(s);
+    s.tmp_0.arg0 = 500;
+    s.callLocIdx = 73; s.pc = 6; return s.tmp_0;
+  case 6:
     r0 = s.retval;
     r0 = pxsim_pxtcore_mkClassInstance(WebSocket__C567961_VT);
     s.tmp_0 = r0;
     s.tmp_1 = WebSocket_constructor__P567982_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.tmp_1.arg1 = "wss://echo.websocket.org";
-    s.callLocIdx = 77; s.pc = 6; return s.tmp_1;
-  case 6:
-    r0 = s.retval;
-    s.ws___573483 = (s.tmp_0);
-    s.tmp_0 = WebSocket_onerror__P567974_mk(s);
-    s.tmp_0.arg0 = s.ws___573483;
-    s.tmp_0.arg1 = inline__P573488;
-    s.callLocIdx = 79; s.pc = 7; return s.tmp_0;
+    s.callLocIdx = 74; s.pc = 7; return s.tmp_1;
   case 7:
     r0 = s.retval;
-    s.tmp_0 = WebSocket_onmessage__P567976_mk(s);
-    s.tmp_0.arg0 = s.ws___573483;
-    s.tmp_0.arg1 = inline__P573492;
-    s.callLocIdx = 81; s.pc = 8; return s.tmp_0;
+    s.ws___576462 = (s.tmp_0);
+    s.tmp_0 = WebSocket_onerror__P567974_mk(s);
+    s.tmp_0.arg0 = s.ws___576462;
+    s.tmp_0.arg1 = inline__P576467;
+    s.callLocIdx = 76; s.pc = 8; return s.tmp_0;
   case 8:
     r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, inline__P573506);
-    s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.ws___573483);
-    s.tmp_1 = WebSocket_onopen__P567978_mk(s);
-    s.tmp_1.arg0 = s.ws___573483;
-    s.tmp_1.arg1 = s.tmp_0;
-    s.callLocIdx = 87; s.pc = 9; return s.tmp_1;
+    s.tmp_0 = WebSocket_onmessage__P567976_mk(s);
+    s.tmp_0.arg0 = s.ws___576462;
+    s.tmp_0.arg1 = inline__P576471;
+    s.callLocIdx = 78; s.pc = 9; return s.tmp_0;
   case 9:
+    r0 = s.retval;
+    r0 = pxsim_pxtcore_mkAction(1, inline__P576485);
+    s.tmp_0 = r0;
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.ws___576462);
+    s.tmp_1 = WebSocket_onopen__P567978_mk(s);
+    s.tmp_1.arg0 = s.ws___576462;
+    s.tmp_1.arg1 = s.tmp_0;
+    s.callLocIdx = 84; s.pc = 10; return s.tmp_1;
+  case 10:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-inline__P573424.info = {"start":60,"length":1334,"line":1,"column":22,"endLine":43,"endColumn":1,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
+inline__P576419.info = {"start":60,"length":1184,"line":1,"column":22,"endLine":41,"endColumn":1,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P573424_mk(s) {
+function inline__P576419_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P573424, depth: s.depth + 1,
+        parent: s, fn: inline__P576419, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
-  ws___573426: undefined,
-  ws___573483: undefined,
+  ws___576421: undefined,
+  ws___576462: undefined,
 } }
 
 
 
 
 
-function inline__P573431(s) {
+function inline__P576426(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1499,12 +1504,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P573431.info = {"start":261,"length":26,"line":7,"column":21,"endLine":7,"endColumn":47,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
+inline__P576426.info = {"start":261,"length":26,"line":7,"column":21,"endLine":7,"endColumn":47,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P573431_mk(s) {
+function inline__P576426_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P573431, depth: s.depth + 1,
+        parent: s, fn: inline__P576426, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
 } }
@@ -1513,7 +1518,7 @@ function inline__P573431_mk(s) {
 
 
 
-function inline__P573435(s) {
+function inline__P576430(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1523,20 +1528,20 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.data___573437 = undefined;
+    s.data___576432 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0.fields["data"];
-    s.data___573437 = (r0);
+    s.data___576432 = (r0);
     s.tmp_0 = console_log__P369_mk(s);
-    if ((s.data___573437) && (s.data___573437).vtable) {
+    if ((s.data___576432) && (s.data___576432).vtable) {
     setupResume(s, 2);
-    pxsim_String__stringConv(s.data___573437);
+    pxsim_String__stringConv(s.data___576432);
     checkResumeConsumed();
     return;
-    } else { s.retval = (s.data___573437) + ""; }
+    } else { s.retval = (s.data___576432) + ""; }
   case 2:
     r0 = s.retval;
     s.tmp_1 = r0;
@@ -1549,16 +1554,16 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P573435.info = {"start":312,"length":97,"line":8,"column":23,"endLine":11,"endColumn":9,"fileName":"test.ts","functionName":"inline","argumentNames":["msg"]}
+inline__P576430.info = {"start":312,"length":97,"line":8,"column":23,"endLine":11,"endColumn":9,"fileName":"test.ts","functionName":"inline","argumentNames":["msg"]}
 
-function inline__P573435_mk(s) {
+function inline__P576430_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P573435, depth: s.depth + 1,
+        parent: s, fn: inline__P576430, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
-  data___573437: undefined,
+  data___576432: undefined,
   arg0: undefined,
 } }
 
@@ -1566,7 +1571,7 @@ function inline__P573435_mk(s) {
 
 
 
-function inline__P573447(s) {
+function inline__P576442(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1576,24 +1581,24 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    r0 = pxsim_pxtcore_mkAction(1, inline__P573449);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P576444);
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.caps[0]);
     s.tmp_1 = forever__P1847_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
-    s.callLocIdx = 75; s.pc = 1; return s.tmp_1;
+    s.callLocIdx = 71; s.pc = 1; return s.tmp_1;
   case 1:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-inline__P573447.info = {"start":431,"length":397,"line":12,"column":20,"endLine":23,"endColumn":9,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
+inline__P576442.info = {"start":431,"length":225,"line":12,"column":20,"endLine":19,"endColumn":9,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P573447_mk(s) {
+function inline__P576442_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P573447, depth: s.depth + 1,
+        parent: s, fn: inline__P576442, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -1603,7 +1608,7 @@ function inline__P573447_mk(s) {
 
 
 
-function inline__P573449(s) {
+function inline__P576444(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1613,8 +1618,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.m___573450 = undefined;
-    s.b___573466 = undefined;
+    s.m___576445 = undefined;
     r0 = pxsim.control.millis();
     s.tmp_1 = r0;
     if ((s.tmp_1) && (s.tmp_1).vtable) {
@@ -1627,14 +1631,14 @@ switch (step) {
     r0 = s.retval;
     s.tmp_0 = r0;
     r0 = pxsim_String__concat("makecode ", s.tmp_0);
-    s.m___573450 = (r0);
+    s.m___576445 = (r0);
     s.tmp_0 = console_log__P369_mk(s);
-    if ((s.m___573450) && (s.m___573450).vtable) {
+    if ((s.m___576445) && (s.m___576445).vtable) {
     setupResume(s, 3);
-    pxsim_String__stringConv(s.m___573450);
+    pxsim_String__stringConv(s.m___576445);
     checkResumeConsumed();
     return;
-    } else { s.retval = (s.m___573450) + ""; }
+    } else { s.retval = (s.m___576445) + ""; }
   case 3:
     r0 = s.retval;
     s.tmp_1 = r0;
@@ -1645,77 +1649,36 @@ switch (step) {
     r0 = s.retval;
     s.tmp_0 = WebSocket_send__P567980_mk(s);
     s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = s.m___573450;
+    s.tmp_0.arg1 = s.m___576445;
     s.callLocIdx = 69; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
     s.tmp_0 = pause__P402_mk(s);
-    s.tmp_0.arg0 = 5000;
+    s.tmp_0.arg0 = 1000;
     s.callLocIdx = 70; s.pc = 5; return s.tmp_0;
   case 5:
-    r0 = s.retval;
-    r0 = pxsim_Array__mk();
-    s.tmp_0 = r0;
-    r0 = pxsim.control.millis();
-    s.tmp_1 = r0;
-    r0 = pxsim_Array__push(s.tmp_0, s.tmp_1);
-    s.tmp_2 = Buffer_fromArray__P199_mk(s);
-    s.tmp_2.arg0 = s.tmp_0;
-    s.callLocIdx = 71; s.pc = 6; return s.tmp_2;
-  case 6:
-    r0 = s.retval;
-    s.b___573466 = (r0);
-    s.tmp_0 = console_log__P369_mk(s);
-    r0 = pxsim.BufferMethods.toHex(s.b___573466);
-    s.tmp_2 = r0;
-    if ((s.tmp_2) && (s.tmp_2).vtable) {
-    setupResume(s, 8);
-    pxsim_String__stringConv(s.tmp_2);
-    checkResumeConsumed();
-    return;
-    } else { s.retval = (s.tmp_2) + ""; }
-  case 8:
-    r0 = s.retval;
-    s.tmp_1 = r0;
-    r0 = pxsim_String__concat("<-- ", s.tmp_1);
-    s.tmp_0.arg0 = r0;
-    s.callLocIdx = 72; s.pc = 7; return s.tmp_0;
-  case 7:
-    r0 = s.retval;
-    s.tmp_0 = WebSocket_send__P567980_mk(s);
-    s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = s.b___573466;
-    s.callLocIdx = 73; s.pc = 9; return s.tmp_0;
-  case 9:
-    r0 = s.retval;
-    s.tmp_0 = pause__P402_mk(s);
-    s.tmp_0.arg0 = 5000;
-    s.callLocIdx = 74; s.pc = 10; return s.tmp_0;
-  case 10:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-inline__P573449.info = {"start":460,"length":356,"line":13,"column":20,"endLine":22,"endColumn":13,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
+inline__P576444.info = {"start":460,"length":184,"line":13,"column":20,"endLine":18,"endColumn":13,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P573449_mk(s) {
+function inline__P576444_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P573449, depth: s.depth + 1,
+        parent: s, fn: inline__P576444, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
-  tmp_2: undefined,
-  m___573450: undefined,
-  b___573466: undefined,
+  m___576445: undefined,
 } }
 
 
 
 
 
-function inline__P573488(s) {
+function inline__P576467(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1727,19 +1690,19 @@ switch (step) {
 
     s.tmp_0 = console_log__P369_mk(s);
     s.tmp_0.arg0 = "error";
-    s.callLocIdx = 78; s.pc = 1; return s.tmp_0;
+    s.callLocIdx = 75; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-inline__P573488.info = {"start":958,"length":26,"line":29,"column":21,"endLine":29,"endColumn":47,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
+inline__P576467.info = {"start":808,"length":26,"line":27,"column":21,"endLine":27,"endColumn":47,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P573488_mk(s) {
+function inline__P576467_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P573488, depth: s.depth + 1,
+        parent: s, fn: inline__P576467, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
 } }
@@ -1748,7 +1711,7 @@ function inline__P573488_mk(s) {
 
 
 
-function inline__P573492(s) {
+function inline__P576471(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1758,15 +1721,15 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.data___573494 = undefined;
+    s.data___576473 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0.fields["data"];
-    s.data___573494 = (r0);
+    s.data___576473 = (r0);
     s.tmp_0 = console_log__P369_mk(s);
-    r0 = pxsim.BufferMethods.toHex(s.data___573494);
+    r0 = pxsim.BufferMethods.toHex(s.data___576473);
     s.tmp_2 = r0;
     if ((s.tmp_2) && (s.tmp_2).vtable) {
     setupResume(s, 2);
@@ -1779,24 +1742,24 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = pxsim_String__concat("--> ", s.tmp_1);
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 80; s.pc = 1; return s.tmp_0;
+    s.callLocIdx = 77; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-inline__P573492.info = {"start":1009,"length":117,"line":30,"column":23,"endLine":33,"endColumn":9,"fileName":"test.ts","functionName":"inline","argumentNames":["msg"]}
+inline__P576471.info = {"start":859,"length":117,"line":28,"column":23,"endLine":31,"endColumn":9,"fileName":"test.ts","functionName":"inline","argumentNames":["msg"]}
 
-function inline__P573492_mk(s) {
+function inline__P576471_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P573492, depth: s.depth + 1,
+        parent: s, fn: inline__P576471, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  data___573494: undefined,
+  data___576473: undefined,
   arg0: undefined,
 } }
 
@@ -1804,7 +1767,7 @@ function inline__P573492_mk(s) {
 
 
 
-function inline__P573506(s) {
+function inline__P576485(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1814,24 +1777,24 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    r0 = pxsim_pxtcore_mkAction(1, inline__P573508);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P576487);
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.caps[0]);
     s.tmp_1 = forever__P1847_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
-    s.callLocIdx = 86; s.pc = 1; return s.tmp_1;
+    s.callLocIdx = 83; s.pc = 1; return s.tmp_1;
   case 1:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-inline__P573506.info = {"start":1148,"length":235,"line":34,"column":20,"endLine":41,"endColumn":9,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
+inline__P576485.info = {"start":998,"length":235,"line":32,"column":20,"endLine":39,"endColumn":9,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P573506_mk(s) {
+function inline__P576485_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P573506, depth: s.depth + 1,
+        parent: s, fn: inline__P576485, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -1841,7 +1804,7 @@ function inline__P573506_mk(s) {
 
 
 
-function inline__P573508(s) {
+function inline__P576487(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1851,7 +1814,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.b___573509 = undefined;
+    s.b___576488 = undefined;
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim.control.millis();
@@ -1859,12 +1822,12 @@ switch (step) {
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_1);
     s.tmp_2 = Buffer_fromArray__P199_mk(s);
     s.tmp_2.arg0 = s.tmp_0;
-    s.callLocIdx = 82; s.pc = 1; return s.tmp_2;
+    s.callLocIdx = 79; s.pc = 1; return s.tmp_2;
   case 1:
     r0 = s.retval;
-    s.b___573509 = (r0);
+    s.b___576488 = (r0);
     s.tmp_0 = console_log__P369_mk(s);
-    r0 = pxsim.BufferMethods.toHex(s.b___573509);
+    r0 = pxsim.BufferMethods.toHex(s.b___576488);
     s.tmp_2 = r0;
     if ((s.tmp_2) && (s.tmp_2).vtable) {
     setupResume(s, 3);
@@ -1877,35 +1840,35 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = pxsim_String__concat("<-- ", s.tmp_1);
     s.tmp_0.arg0 = r0;
-    s.callLocIdx = 83; s.pc = 2; return s.tmp_0;
+    s.callLocIdx = 80; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
     s.tmp_0 = WebSocket_send__P567980_mk(s);
     s.tmp_0.arg0 = s.caps[0];
-    s.tmp_0.arg1 = s.b___573509;
-    s.callLocIdx = 84; s.pc = 4; return s.tmp_0;
+    s.tmp_0.arg1 = s.b___576488;
+    s.callLocIdx = 81; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
     s.tmp_0 = pause__P402_mk(s);
-    s.tmp_0.arg0 = 5000;
-    s.callLocIdx = 85; s.pc = 5; return s.tmp_0;
+    s.tmp_0.arg0 = 1000;
+    s.callLocIdx = 82; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-inline__P573508.info = {"start":1177,"length":194,"line":35,"column":20,"endLine":40,"endColumn":13,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
+inline__P576487.info = {"start":1027,"length":194,"line":33,"column":20,"endLine":38,"endColumn":13,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P573508_mk(s) {
+function inline__P576487_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P573508, depth: s.depth + 1,
+        parent: s, fn: inline__P576487, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  b___573509: undefined,
+  b___576488: undefined,
 } }
 
 
@@ -2472,7 +2435,7 @@ switch (step) {
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = globals.OPEN_EVENT_TYPE___568004;
     s.tmp_0.arg2 = s.arg1;
-    s.callLocIdx = 113; s.pc = 3; return s.tmp_0;
+    s.callLocIdx = 110; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
     { step = 2; continue; }
@@ -2481,7 +2444,7 @@ switch (step) {
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = globals.OPEN_EVENT_TYPE___568004;
     s.tmp_0.arg2 = s.arg1;
-    s.callLocIdx = 114; s.pc = 4; return s.tmp_0;
+    s.callLocIdx = 111; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
   case 2:
@@ -2528,7 +2491,7 @@ switch (step) {
     s.tmp_0 = EventTarget_getOrCreateTypeListeners__P567964_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = s.arg1;
-    s.callLocIdx = 90; s.pc = 5; return s.tmp_0;
+    s.callLocIdx = 87; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
     s.typeListeners___568076 = (r0);
@@ -2542,7 +2505,7 @@ switch (step) {
     s.tmp_1.arg0 = s.typeListeners___568076;
     s.tmp_1.arg1 = s.i___568080;
     s.tmp_1.arg2 = 1;
-    s.callLocIdx = 91; s.pc = 6; return s.tmp_1;
+    s.callLocIdx = 88; s.pc = 6; return s.tmp_1;
   case 6:
     r0 = s.retval;
     r0 = pxsim_Array__length(s.typeListeners___568076);
@@ -2554,7 +2517,7 @@ switch (step) {
     s.tmp_2 = EventTarget_deleteTypeListener__P567965_mk(s);
     s.tmp_2.arg0 = s.arg0;
     s.tmp_2.arg1 = s.arg1;
-    s.callLocIdx = 92; s.pc = 7; return s.tmp_2;
+    s.callLocIdx = 89; s.pc = 7; return s.tmp_2;
   case 7:
     r0 = s.retval;
   case 1:
@@ -2768,7 +2731,7 @@ switch (step) {
     s.tmp_0 = EventTarget_getOrCreateTypeListeners__P567964_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = s.arg1;
-    s.callLocIdx = 88; s.pc = 3; return s.tmp_0;
+    s.callLocIdx = 85; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
     s.typeListeners___568045 = (r0);
@@ -2862,7 +2825,7 @@ switch (step) {
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = globals.MESSAGE_EVENT_TYPE___567985;
     s.tmp_0.arg2 = s.arg1;
-    s.callLocIdx = 111; s.pc = 3; return s.tmp_0;
+    s.callLocIdx = 108; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
     { step = 2; continue; }
@@ -2871,7 +2834,7 @@ switch (step) {
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = globals.MESSAGE_EVENT_TYPE___567985;
     s.tmp_0.arg2 = s.arg1;
-    s.callLocIdx = 112; s.pc = 4; return s.tmp_0;
+    s.callLocIdx = 109; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
   case 2:
@@ -2953,7 +2916,7 @@ switch (step) {
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = globals.ERROR_EVENT_TYPE___568008;
     s.tmp_0.arg2 = s.arg1;
-    s.callLocIdx = 109; s.pc = 3; return s.tmp_0;
+    s.callLocIdx = 106; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
     { step = 2; continue; }
@@ -2962,7 +2925,7 @@ switch (step) {
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = globals.ERROR_EVENT_TYPE___568008;
     s.tmp_0.arg2 = s.arg1;
-    s.callLocIdx = 110; s.pc = 4; return s.tmp_0;
+    s.callLocIdx = 107; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
   case 2:
@@ -3044,12 +3007,12 @@ switch (step) {
     r0 = (s.tmp_0).fields["listeners"] = (s.tmp_1);
     s.tmp_2 = EventTarget_constructor__P568017_mk(s);
     s.tmp_2.arg0 = s.arg0;
-    s.callLocIdx = 95; s.pc = 1; return s.tmp_2;
+    s.callLocIdx = 92; s.pc = 1; return s.tmp_2;
   case 1:
     r0 = s.retval;
     s.tmp_0 = WebSocket_registerHandlers__P567969_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 96; s.pc = 2; return s.tmp_0;
+    s.callLocIdx = 93; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
     r0 = pxsim_Array__push(globals.WebSocket_sockets___568141, s.arg0);
@@ -3063,7 +3026,7 @@ switch (step) {
     r0 = (s.arg0).fields["_readyState"] = (globals.WebSocket_CLOSED___568163);
     s.tmp_0 = WebSocket_open__P567981_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 97; s.pc = 3; return s.tmp_0;
+    s.callLocIdx = 94; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
     r0 = undefined;
@@ -3171,7 +3134,7 @@ switch (step) {
     s.tmp_0 = control_simmessages_onReceived__P421_mk(s);
     s.tmp_0.arg0 = globals.CHANNEL___568115;
     s.tmp_0.arg1 = inline__P568172;
-    s.callLocIdx = 99; s.pc = 4; return s.tmp_0;
+    s.callLocIdx = 96; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
   case 3:
@@ -3219,7 +3182,7 @@ switch (step) {
     s.tmp_0 = WebSocket_handleMessage__P567970_mk(s);
     s.tmp_0.arg0 = s.socket___568177;
     s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 98; s.pc = 3; return s.tmp_0;
+    s.callLocIdx = 95; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
   case 1:
@@ -3300,13 +3263,13 @@ switch (step) {
     s.tmp_1 = Event_constructor__P568010_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.tmp_1.arg1 = globals.OPEN_EVENT_TYPE___568004;
-    s.callLocIdx = 100; s.pc = 19; return s.tmp_1;
+    s.callLocIdx = 97; s.pc = 19; return s.tmp_1;
   case 19:
     r0 = s.retval;
     s.tmp_2 = EventTarget_dispatchEvent__P567967_mk(s);
     s.tmp_2.arg0 = s.arg0;
     s.tmp_2.arg1 = s.tmp_0;
-    s.callLocIdx = 101; s.pc = 20; return s.tmp_2;
+    s.callLocIdx = 98; s.pc = 20; return s.tmp_2;
   case 20:
     r0 = s.retval;
     { step = 18; continue; }
@@ -3347,13 +3310,13 @@ switch (step) {
     s.tmp_1 = MessageEvent_constructor__P568107_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.tmp_1.arg1 = s.data___568236;
-    s.callLocIdx = 102; s.pc = 21; return s.tmp_1;
+    s.callLocIdx = 99; s.pc = 21; return s.tmp_1;
   case 21:
     r0 = s.retval;
     s.tmp_2 = EventTarget_dispatchEvent__P567967_mk(s);
     s.tmp_2.arg0 = s.arg0;
     s.tmp_2.arg1 = s.tmp_0;
-    s.callLocIdx = 103; s.pc = 22; return s.tmp_2;
+    s.callLocIdx = 100; s.pc = 22; return s.tmp_2;
   case 22:
     r0 = s.retval;
     { step = 17; continue; }
@@ -3376,7 +3339,7 @@ switch (step) {
     r0 = s.arg0.fields["_id"];
     s.tmp_3.arg1 = r0;
     s.tmp_3.arg2 = 1;
-    s.callLocIdx = 104; s.pc = 23; return s.tmp_3;
+    s.callLocIdx = 101; s.pc = 23; return s.tmp_3;
   case 23:
     r0 = s.retval;
     r0 = (s.arg0).fields["_id"] = (undefined);
@@ -3388,13 +3351,13 @@ switch (step) {
     s.tmp_1 = CloseEvent_constructor__P568098_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.tmp_1.arg1 = s.code___568261;
-    s.callLocIdx = 105; s.pc = 24; return s.tmp_1;
+    s.callLocIdx = 102; s.pc = 24; return s.tmp_1;
   case 24:
     r0 = s.retval;
     s.tmp_2 = EventTarget_dispatchEvent__P567967_mk(s);
     s.tmp_2.arg0 = s.arg0;
     s.tmp_2.arg1 = s.tmp_0;
-    s.callLocIdx = 106; s.pc = 25; return s.tmp_2;
+    s.callLocIdx = 103; s.pc = 25; return s.tmp_2;
   case 25:
     r0 = s.retval;
     { step = 16; continue; }
@@ -3408,13 +3371,13 @@ switch (step) {
     s.tmp_2 = Event_constructor__P568010_mk(s);
     s.tmp_2.arg0 = s.tmp_1;
     s.tmp_2.arg1 = globals.ERROR_EVENT_TYPE___568008;
-    s.callLocIdx = 107; s.pc = 26; return s.tmp_2;
+    s.callLocIdx = 104; s.pc = 26; return s.tmp_2;
   case 26:
     r0 = s.retval;
     s.tmp_3 = EventTarget_dispatchEvent__P567967_mk(s);
     s.tmp_3.arg0 = s.arg0;
     s.tmp_3.arg1 = s.tmp_1;
-    s.callLocIdx = 108; s.pc = 27; return s.tmp_3;
+    s.callLocIdx = 105; s.pc = 27; return s.tmp_3;
   case 27:
     r0 = s.retval;
   case 14:
@@ -3472,7 +3435,7 @@ switch (step) {
     s.tmp_0 = Event_constructor__P568010_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = globals.CLOSE_EVENT_TYPE___568006;
-    s.callLocIdx = 93; s.pc = 1; return s.tmp_0;
+    s.callLocIdx = 90; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
     r0 = (s.arg0).fields["code"] = (s.arg1);
@@ -3516,7 +3479,7 @@ switch (step) {
     s.tmp_0 = Event_constructor__P568010_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = globals.MESSAGE_EVENT_TYPE___567985;
-    s.callLocIdx = 94; s.pc = 1; return s.tmp_0;
+    s.callLocIdx = 91; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
     r0 = (s.arg0).fields["data"] = (s.arg1);
@@ -3589,8 +3552,8 @@ switch (step) {
 
     s.typeListeners___568061 = undefined;
     s.listener___568069 = undefined;
-    s.unnamed8734___U2 = undefined;
-    s.unnamed8735___U3 = undefined;
+    s.unnamed8838___U2 = undefined;
+    s.unnamed8839___U3 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -3607,28 +3570,28 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.typeListeners___568061);
     if (!r0) { step = 3; continue; }
     s.listener___568069 = (undefined);
-    s.unnamed8734___U2 = (s.typeListeners___568061);
-    s.unnamed8735___U3 = (0);
+    s.unnamed8838___U2 = (s.typeListeners___568061);
+    s.unnamed8839___U3 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed8735___U3;
-    r0 = pxsim_Array__length(s.unnamed8734___U2);
+    s.tmp_0 = r0 = s.unnamed8839___U3;
+    r0 = pxsim_Array__length(s.unnamed8838___U2);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed8734___U2, s.unnamed8735___U3);
+    r0 = pxsim_Array__getAt(s.unnamed8838___U2, s.unnamed8839___U3);
     s.listener___568069 = (r0);
     s.tmp_2 = lambda_2_mk(s);
     s.tmp_2.argL = s.listener___568069;
     s.tmp_2.arg0 = s.arg1;
     setupLambda(s.tmp_2, s.tmp_2.argL);
-    s.callLocIdx = 89; s.pc = 5; return s.tmp_2;
+    s.callLocIdx = 86; s.pc = 5; return s.tmp_2;
   case 5:
     r0 = s.retval;
-    r0 = (s.unnamed8735___U3 + 1);
-    s.unnamed8735___U3 = (r0);
+    r0 = (s.unnamed8839___U3 + 1);
+    s.unnamed8839___U3 = (r0);
     { step = 1; continue; }
   case 2:
-    s.unnamed8734___U2 = (undefined);
+    s.unnamed8838___U2 = (undefined);
   case 3:
   case 4:
     r0 = true;
@@ -3647,8 +3610,8 @@ function EventTarget_dispatchEvent__P567967_mk(s) {
   tmp_2: undefined,
   typeListeners___568061: undefined,
   listener___568069: undefined,
-  unnamed8734___U2: undefined,
-  unnamed8735___U3: undefined,
+  unnamed8838___U2: undefined,
+  unnamed8839___U3: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -41252,5 +41215,5 @@ const sprites_StaticObstacle__C2146_VT = mkVTable({
 
 const breakpoints = setupDebugger(1, ["WebSocket_OPEN___567983","CHANNEL___568115","OPEN_EVENT_TYPE___568004","MESSAGE_EVENT_TYPE___567985","ERROR_EVENT_TYPE___568008","WebSocket_sockets___568141","WebSocket_CLOSED___568163","WebSocket_CONNECTING___568204","CLOSE_EVENT_TYPE___568006"])
 
-return _main___P574113
+return _main___P576849
 })
