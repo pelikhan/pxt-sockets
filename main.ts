@@ -99,34 +99,38 @@ const ERROR_MESSAGE = 1 << 3;
 const STRING_DATA = 1 << 4;
 const BUFFER_DATA = 1 << 5;
 
-class Transport {        
-    constructor(
-        public readonly send: (msg: Buffer) => void,
-        public readonly onReceived: (handler: (msg: Buffer) => void) => void
-    ) {}
-}
 
-let nextId = 1;
 /** Provides the API for creating and managing a WebSocket connection to a server, as well as for sending and receiving data on the connection. */
 class WebSocket extends EventTarget {
     private _readyState: number;
-    private _id: number = ++nextId % 0xff;
+    private _id: number;
     private readonly _url: string;
+
+    private static sockets: WebSocket[];
 
     /**
      * Creates a new web socket
      */
     constructor(url: string) {
-        super();        
-        this._url = url;
+        super();
         this.registerHandlers();
+        WebSocket.sockets.push(this);
+        this._id = WebSocket.sockets.length - 1;
+        this._url = url;
         this._readyState = WebSocket.CLOSED;
         this.open();
     }
 
     private registerHandlers() {
+        if (WebSocket.sockets) return;
+
+        // start sockets
+        WebSocket.sockets = [];
         control.simmessages.onReceived(CHANNEL, (msg: Buffer) => {
-            this.handleMessage(msg);
+            const id = msg[1];
+            const socket = WebSocket.sockets[id];
+            if (socket)
+                socket.handleMessage(msg);
         })
     }
 
@@ -135,10 +139,8 @@ class WebSocket extends EventTarget {
         const id = msg[1];
 
         // check it's correct
-        if (id !== this._id) {
-            console.log(`different socket ${id} != ${this._id}`)
-            return; // not for us
-        }
+        if (id !== this._id)
+            throw `wrong socket`
 
         // check opening
         if (type === OPEN_MESSAGE) {
@@ -155,6 +157,10 @@ class WebSocket extends EventTarget {
             const data = isString ? dataBuffer.toString() : dataBuffer;
             this.dispatchEvent(new MessageEvent(data));
         } else if (type === CLOSE_MESSAGE) {
+            if (this._id === undefined)
+                throw "socket already closed";
+
+            WebSocket.sockets.splice(this._id, 1);
             this._id = undefined;
             const code = msg.getNumber(NumberFormat.UInt32LE, 2);
             this._readyState = WebSocket.CLOSED;

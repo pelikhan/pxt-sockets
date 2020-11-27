@@ -5,7 +5,7 @@ control.runInParallel(function() {
     ws.onerror = () => console.log("error")
     ws.onmessage = (msg) => {
         const data = msg.data;
-        console.log(`--> ${typeof data === "string" ? data : data.toString()}`)
+        console.log(`--> ${typeof data === "string" ? data : data.toHex()}`)
     }
     ws.onopen = () => {
         forever(() => {
@@ -14,7 +14,7 @@ control.runInParallel(function() {
             ws.send(m);    
             pause(5000)
             const b = Buffer.fromArray([control.millis()]);
-            console.log(`<-- ${b.toString()}`)
+            console.log(`<-- ${b.toHex()}`)
             ws.send(b);
             pause(5000)
         })
