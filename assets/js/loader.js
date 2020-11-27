@@ -1,7 +1,14 @@
+var meta = undefined;
 var channelHandlers = {}
 
 function addSimMessageHandler(channel, handler) {
     channelHandlers[channel] = handler;
+}
+
+function simPostMessage(msg) {
+    const frame = document.getElementById("simframe");
+    if (frame)
+        frame.contentWindow.postMessage(msg, meta.simUrl);
 }
 
 function uint8ArrayToString(input) {
@@ -18,7 +25,6 @@ function makeCodeRun(options) {
     var simState = {}
     var simStateChanged = false
     var started = false;
-    var meta = undefined;
 
     // hide scrollbar
     window.scrollTo(0, 1);
@@ -71,12 +77,12 @@ function makeCodeRun(options) {
             },
             id: "green-" + Math.random()
         }
-        postMessage(runMsg);
+        simPostMessage(runMsg);
     }
 
     function stopSim() {
         setState("stopped");
-        postMessage({
+        simPostMessage({
             type: "stop"
         });
         started = false;
@@ -124,12 +130,6 @@ function makeCodeRun(options) {
         var r = document.getElementById("root");
         if (r)
             r.setAttribute("data-state", st);
-    }
-
-    function postMessage(msg) {
-        const frame = document.getElementById("simframe");
-        if (frame)
-            frame.contentWindow.postMessage(msg, meta.simUrl);
     }
 
     function sendReq(url, cb) {

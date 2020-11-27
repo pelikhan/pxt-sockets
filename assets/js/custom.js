@@ -4,18 +4,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const CLOSE_MESSAGE = 1 << 1;
     const MESSAGE_MESSAGE = 1 << 2;
     const OPEN_MESSAGE = 1 << 3;
-    const STRING_DATA = 1 << 2;
-    const BUFFER_DATA = 1 << 3;
+    const ERROR_MESSAGE = 1 << 4
+    const STRING_DATA = 1 << 5;
+    const BUFFER_DATA = 1 << 6;
 
     let sockets = {};
 
     const proxy = data => {
         console.log(`post`, {data})
-        sim.contentWindow.postMessage({
+        simPostMessage({
             type: 'messagepacket',
             channel: CHANNEL,
             data
-        }, "*");
+        });
     }
 
     addSimMessageHandler("wss", (msg) => {
@@ -27,9 +28,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             console.log(`open ${url} -> ${id}`)
             const ws = new WebSocket(url);
+            ws.onerror = (e) => {
+                const data = new Uint8Array([ERROR_MESSAGE, id])
+                console.log(`error`, { data })
+                proxy(data)
+            }
             ws.onopen = () => {
                 const data = new Uint8Array([OPEN_MESSAGE, id]);
-                console.log(`proxy`, { data })
+                console.log(`open`, { data })
                 proxy(data)
             }
             ws.onclose = (e) => {
