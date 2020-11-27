@@ -114,7 +114,7 @@ function makeCodeRun(options) {
     function uint8ArrayToString(input) {
         let len = input.length;
         let res = ""
-        for (let i = 0; i < len; ++i)
+        for (let i = (offset || 0); i < len; ++i)
             res += String.fromCharCode(input[i]);
         return res;
     }            
