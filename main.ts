@@ -32,7 +32,7 @@ class EventTarget {
     /**
      * Appends an event listener for events whose type attribute value is type. The callback argument sets the callback that will be invoked when the event is dispatched.
      */
-    addEventListener(type: string, listener: (evt: Event) => void): void {
+    public addEventListener(type: string, listener: (evt?: Event) => void): void {
         const typeListeners = this.getOrCreateTypeListeners(type);
         if (typeListeners.indexOf(listener) < 0)
             typeListeners.push(listener);
@@ -41,7 +41,7 @@ class EventTarget {
     /**
      * Dispatches a synthetic event event to target and returns true if either event's cancelable attribute value is false or its preventDefault() method was not invoked, and false otherwise.
      */
-    dispatchEvent(event: Event): boolean {
+    public dispatchEvent(event?: Event): boolean {
         const typeListeners = this.listeners[event.type];
         if (typeListeners) {
             for(const listener of typeListeners) {
@@ -53,7 +53,7 @@ class EventTarget {
     /**
      * Removes the event listener in target's event listener list with the same type, callback, and options.
      */
-    removeEventListener(type: string, callback: (evt: Event) => void): void {
+    public removeEventListener(type: string, callback: (evt?: Event) => void): void {
         const typeListeners = this.getOrCreateTypeListeners(type);
         const i = typeListeners.indexOf(callback);
         if (i > 0) {
@@ -118,6 +118,9 @@ class WebSocket extends EventTarget {
     private _id: string;
     private readonly _url: string;
 
+    /**
+     * Creates a new web socket
+     */
     constructor(url: string) {
         super();
         
@@ -144,25 +147,29 @@ class WebSocket extends EventTarget {
         })
     }
 
-    set onclose(handler: (evt: CloseEvent) => void) {
+    get onclose(): (evt?: CloseEvent) => void { return null; }
+    set onclose(handler: (evt?: CloseEvent) => void) {
         if(handler)
             this.addEventListener(CLOSE_EVENT_TYPE, handler);
         else
             this.removeEventListener(CLOSE_EVENT_TYPE, handler);
     }
-    set onerror(handler: (evt: Event) => void) {
+    get onerror(): (evt?: Event) => void { return null; }
+    set onerror(handler: (evt?: Event) => void) {
         if(handler)
             this.addEventListener(ERROR_EVENT_TYPE, handler);
         else
             this.removeEventListener(ERROR_EVENT_TYPE, handler);
     }
-    set onmessage(handler: (evt: MessageEvent) => void) {
+    get onmessage(): (evt?: MessageEvent) => void { return null; }
+    set onmessage(handler: (evt?: MessageEvent) => void) {
         if(handler)
             this.addEventListener(MESSAGE_EVENT_TYPE, handler);
         else
             this.removeEventListener(MESSAGE_EVENT_TYPE, handler);
     }
-    set onopen(handler: (evt: Event) => void) {
+    get onopen(): (evt?: Event) => void { return null; }
+    set onopen(handler: (evt?: Event) => void) {
         if(handler)
             this.addEventListener(OPEN_EVENT_TYPE, handler);
         else
