@@ -106,17 +106,6 @@ class Transport {
     ) {}
 }
 
-let transport: Transport;
-function getTransport(): Transport {
-    if (!transport) {
-        transport = new Transport(
-            (msg) => control.simmessages.send(CHANNEL, msg, true),
-            (handler) => control.simmessages.onReceived(CHANNEL, handler)
-        );         
-    }
-    return transport;
-}
-
 let nextId = 1;
 /** Provides the API for creating and managing a WebSocket connection to a server, as well as for sending and receiving data on the connection. */
 class WebSocket extends EventTarget {
@@ -138,8 +127,9 @@ class WebSocket extends EventTarget {
     }
 
     private registerHandlers() {
-        const t = getTransport();
-        t.onReceived(msg => this.handleMessage(msg));
+        control.simmessages.onReceived(CHANNEL, function(msg: Buffer) {
+            this.handleMessage(msg);
+        })
     }
 
     private handleMessage(msg: Buffer) {
@@ -237,7 +227,8 @@ class WebSocket extends EventTarget {
             msg.setNumber(NumberFormat.UInt32LE, 2, code);
 
         this._readyState = WebSocket.CLOSING;
-        transport.send(msg)
+        // send over
+        control.simmessages.send(CHANNEL, msg, true)        
     }
 
     /**
@@ -255,7 +246,7 @@ class WebSocket extends EventTarget {
         msg[1] = this._id;
         msg.write(2, dataBuffer);
         // send message
-        transport.send(msg);
+        control.simmessages.send(CHANNEL, msg, true)        
     }
 
     private open() {
@@ -265,8 +256,9 @@ class WebSocket extends EventTarget {
         msg[0] = OPEN_MESSAGE;
         msg[1] = this._id;
         msg.write(2, urlBuffer);
-        transport.send(msg);
+
         this._readyState = WebSocket.CONNECTING;
+        control.simmessages.send(CHANNEL, msg, true)        
     }
 
     static CLOSED: number = 3;
