@@ -1,5 +1,5 @@
-// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.2.10/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.12","target":"arcade","targetVersion":"1.2.10","repo":"pelikhan/pxt-sockets"}
-// total=1187396 new=9.99% cached=84.38% other=5.62%
+// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.2.10/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.13","target":"arcade","targetVersion":"1.2.10","repo":"pelikhan/pxt-sockets"}
+// total=1187386 new=9.99% cached=84.38% other=5.62%
 (function (ectx) {
 'use strict';
 const runtime = ectx.runtime;
@@ -400,7 +400,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P457053(s) {
+function _main___P468638(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -775,26 +775,26 @@ switch (step) {
   case 33:
     r0 = s.retval;
     r0 = pxsim.control.runInParallel(inline__P426699);
-    globals.OPEN_EVENT_TYPE___456088 = ("open");
-    globals.CLOSE_EVENT_TYPE___456090 = ("close");
-    globals.MESSAGE_EVENT_TYPE___456072 = ("message");
-    globals.ERROR_EVENT_TYPE___456092 = ("error");
-    globals.CHANNEL___456199 = ("wss");
-    globals.nextId___456231 = (1);
-    globals.WebSocket_CLOSED___456249 = (3);
-    globals.WebSocket_CONNECTING___456301 = (0);
-    globals.WebSocket_OPEN___456070 = (1);
+    globals.OPEN_EVENT_TYPE___467394 = ("open");
+    globals.CLOSE_EVENT_TYPE___467396 = ("close");
+    globals.MESSAGE_EVENT_TYPE___467378 = ("message");
+    globals.ERROR_EVENT_TYPE___467398 = ("error");
+    globals.CHANNEL___467505 = ("wss");
+    globals.nextId___467537 = (1);
+    globals.WebSocket_CLOSED___467555 = (3);
+    globals.WebSocket_CONNECTING___467607 = (0);
+    globals.WebSocket_OPEN___467376 = (1);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-_main___P457053.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
-_main___P457053.continuations = [  ]
+_main___P468638.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
+_main___P468638.continuations = [  ]
 
-function _main___P457053_mk(s) {
+function _main___P468638_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P457053, depth: s.depth + 1,
+        parent: s, fn: _main___P468638, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -1397,9 +1397,9 @@ switch (step) {
     s.callLocIdx = 62; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    r0 = pxsim_pxtcore_mkClassInstance(WebSocket__C456048_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(WebSocket__C467354_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = WebSocket_constructor__P456069_mk(s);
+    s.tmp_1 = WebSocket_constructor__P467375_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.tmp_1.arg1 = "wss://echo.websocket.org";
     s.callLocIdx = 63; s.pc = 2; return s.tmp_1;
@@ -1423,13 +1423,13 @@ switch (step) {
     s.callLocIdx = 65; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
-    s.tmp_0 = WebSocket_onerror__P456061_mk(s);
+    s.tmp_0 = WebSocket_onerror__P467367_mk(s);
     s.tmp_0.arg0 = s.ws___426701;
     s.tmp_0.arg1 = inline__P426712;
     s.callLocIdx = 67; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
-    s.tmp_0 = WebSocket_onmessage__P456063_mk(s);
+    s.tmp_0 = WebSocket_onmessage__P467369_mk(s);
     s.tmp_0.arg0 = s.ws___426701;
     s.tmp_0.arg1 = inline__P426716;
     s.callLocIdx = 70; s.pc = 6; return s.tmp_0;
@@ -1438,7 +1438,7 @@ switch (step) {
     r0 = pxsim_pxtcore_mkAction(1, inline__P426726);
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.ws___426701);
-    s.tmp_1 = WebSocket_onopen__P456065_mk(s);
+    s.tmp_1 = WebSocket_onopen__P467371_mk(s);
     s.tmp_1.arg0 = s.ws___426701;
     s.tmp_1.arg1 = s.tmp_0;
     s.callLocIdx = 78; s.pc = 7; return s.tmp_1;
@@ -1575,7 +1575,7 @@ switch (step) {
     s.callLocIdx = 72; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
-    s.tmp_0 = WebSocket_send__P456067_mk(s);
+    s.tmp_0 = WebSocket_send__P467373_mk(s);
     s.tmp_0.arg0 = s.caps[0];
     r0 = pxsim.control.millis();
     s.tmp_2 = r0;
@@ -1603,7 +1603,7 @@ switch (step) {
     r0 = pxsim.control.millis();
     s.tmp_1 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_1);
-    s.tmp_2 = WebSocket_send__P456067_mk(s);
+    s.tmp_2 = WebSocket_send__P467373_mk(s);
     s.tmp_2.arg0 = s.caps[0];
     s.tmp_3 = Buffer_fromArray__P199_mk(s);
     s.tmp_3.arg0 = s.tmp_0;
@@ -1706,7 +1706,7 @@ function Buffer_fromArray__P199_mk(s) {
 
 
 
-function WebSocket_send__P456067(s) {
+function WebSocket_send__P467373(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1716,19 +1716,19 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.dataType___456466 = undefined;
-    s.dataBuffer___456473 = undefined;
-    s.msg___456482 = undefined;
+    s.dataType___467772 = undefined;
+    s.dataBuffer___467779 = undefined;
+    s.msg___467788 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, WebSocket__C456048_VT)) failedCast(r0);
+    if (!checkSubtype(r0, WebSocket__C467354_VT)) failedCast(r0);
     r0 = s.arg0.fields["_readyState"];
     s.tmp_1 = r0;
-    r0 = (s.tmp_1 !== globals.WebSocket_OPEN___456070);
+    r0 = (s.tmp_1 !== globals.WebSocket_OPEN___467376);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
@@ -1748,8 +1748,8 @@ switch (step) {
   case 4:
     // jmp value (already in r0)
     s.tmp_4 = r0;
-    s.dataType___456466 = (s.tmp_4);
-    r0 = (s.dataType___456466 === 32);
+    s.dataType___467772 = (s.tmp_4);
+    r0 = (s.dataType___467772 === 32);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 5; continue; }
@@ -1760,41 +1760,41 @@ switch (step) {
   case 6:
     // jmp value (already in r0)
     s.tmp_1 = r0;
-    s.dataBuffer___456473 = (s.tmp_1);
-    r0 = pxsim.BufferMethods.length(s.dataBuffer___456473);
+    s.dataBuffer___467779 = (s.tmp_1);
+    r0 = pxsim.BufferMethods.length(s.dataBuffer___467779);
     s.tmp_1 = r0;
     r0 = (2 + s.tmp_1);
     s.tmp_0 = r0;
     r0 = pxsim.control.createBuffer(s.tmp_0);
-    s.msg___456482 = (r0);
-    s.tmp_0 = r0 = s.msg___456482;
-    r0 = (2 | s.dataType___456466);
+    s.msg___467788 = (r0);
+    s.tmp_0 = r0 = s.msg___467788;
+    r0 = (2 | s.dataType___467772);
     s.tmp_1 = r0;
     r0 = pxsim.BufferMethods.setByte(s.tmp_0, 0, s.tmp_1);
     r0 = s.arg0.fields["_id"];
     s.tmp_0 = r0;
-    r0 = pxsim.BufferMethods.setByte(s.msg___456482, 1, s.tmp_0);
-    r0 = pxsim.BufferMethods.write(s.msg___456482, 2, s.dataBuffer___456473);
-    r0 = pxsim_pxtcore.sendMessage(globals.CHANNEL___456199, s.msg___456482, true);
+    r0 = pxsim.BufferMethods.setByte(s.msg___467788, 1, s.tmp_0);
+    r0 = pxsim.BufferMethods.write(s.msg___467788, 2, s.dataBuffer___467779);
+    r0 = pxsim_pxtcore.sendMessage(globals.CHANNEL___467505, s.msg___467788, true);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-WebSocket_send__P456067.info = {"start":7851,"length":617,"line":237,"column":4,"endLine":250,"endColumn":5,"fileName":"main.ts","functionName":"send","argumentNames":["this","data"]}
+WebSocket_send__P467373.info = {"start":7856,"length":617,"line":236,"column":4,"endLine":249,"endColumn":5,"fileName":"main.ts","functionName":"send","argumentNames":["this","data"]}
 
-function WebSocket_send__P456067_mk(s) {
+function WebSocket_send__P467373_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: WebSocket_send__P456067, depth: s.depth + 1,
+        parent: s, fn: WebSocket_send__P467373, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
   tmp_3: undefined,
   tmp_4: undefined,
-  dataType___456466: undefined,
-  dataBuffer___456473: undefined,
-  msg___456482: undefined,
+  dataType___467772: undefined,
+  dataBuffer___467779: undefined,
+  msg___467788: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -1803,7 +1803,7 @@ function WebSocket_send__P456067_mk(s) {
 
 
 
-function WebSocket_onopen__P456065(s) {
+function WebSocket_onopen__P467371(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1819,21 +1819,21 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, WebSocket__C456048_VT)) failedCast(r0);
+    if (!checkSubtype(r0, WebSocket__C467354_VT)) failedCast(r0);
     r0 = pxsim_numops_toBoolDecr(s.arg1);
     if (!r0) { step = 1; continue; }
-    s.tmp_0 = EventTarget_addEventListener__P456053_mk(s);
+    s.tmp_0 = EventTarget_addEventListener__P467359_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = globals.OPEN_EVENT_TYPE___456088;
+    s.tmp_0.arg1 = globals.OPEN_EVENT_TYPE___467394;
     s.tmp_0.arg2 = s.arg1;
     s.callLocIdx = 108; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
     { step = 2; continue; }
   case 1:
-    s.tmp_0 = EventTarget_removeEventListener__P456055_mk(s);
+    s.tmp_0 = EventTarget_removeEventListener__P467361_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = globals.OPEN_EVENT_TYPE___456088;
+    s.tmp_0.arg1 = globals.OPEN_EVENT_TYPE___467394;
     s.tmp_0.arg2 = s.arg1;
     s.callLocIdx = 109; s.pc = 4; return s.tmp_0;
   case 4:
@@ -1843,12 +1843,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-WebSocket_onopen__P456065.info = {"start":6509,"length":208,"line":195,"column":4,"endLine":200,"endColumn":5,"fileName":"main.ts","functionName":"onopen","argumentNames":["this","handler"]}
+WebSocket_onopen__P467371.info = {"start":6514,"length":208,"line":194,"column":4,"endLine":199,"endColumn":5,"fileName":"main.ts","functionName":"onopen","argumentNames":["this","handler"]}
 
-function WebSocket_onopen__P456065_mk(s) {
+function WebSocket_onopen__P467371_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: WebSocket_onopen__P456065, depth: s.depth + 1,
+        parent: s, fn: WebSocket_onopen__P467371, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -1859,7 +1859,7 @@ function WebSocket_onopen__P456065_mk(s) {
 
 
 
-function EventTarget_removeEventListener__P456055(s) {
+function EventTarget_removeEventListener__P467361(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1869,8 +1869,8 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.typeListeners___456160 = undefined;
-    s.i___456164 = undefined;
+    s.typeListeners___467466 = undefined;
+    s.i___467470 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -1878,34 +1878,34 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, EventTarget__C456050_VT)) failedCast(r0);
-    s.tmp_0 = EventTarget_getOrCreateTypeListeners__P456051_mk(s);
+    if (!checkSubtype(r0, EventTarget__C467356_VT)) failedCast(r0);
+    s.tmp_0 = EventTarget_getOrCreateTypeListeners__P467357_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = s.arg1;
     s.callLocIdx = 81; s.pc = 5; return s.tmp_0;
   case 5:
     r0 = s.retval;
-    s.typeListeners___456160 = (r0);
-    r0 = pxsim_Array_.indexOf(s.typeListeners___456160, s.arg2, undefined);
-    s.i___456164 = (r0);
-    r0 = (s.i___456164 > 0);
+    s.typeListeners___467466 = (r0);
+    r0 = pxsim_Array_.indexOf(s.typeListeners___467466, s.arg2, undefined);
+    s.i___467470 = (r0);
+    r0 = (s.i___467470 > 0);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 3; continue; }
     s.tmp_1 = helpers_arraySplice__P98_mk(s);
-    s.tmp_1.arg0 = s.typeListeners___456160;
-    s.tmp_1.arg1 = s.i___456164;
+    s.tmp_1.arg0 = s.typeListeners___467466;
+    s.tmp_1.arg1 = s.i___467470;
     s.tmp_1.arg2 = 1;
     s.callLocIdx = 82; s.pc = 6; return s.tmp_1;
   case 6:
     r0 = s.retval;
-    r0 = pxsim_Array__length(s.typeListeners___456160);
+    r0 = pxsim_Array__length(s.typeListeners___467466);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 == 0);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    s.tmp_2 = EventTarget_deleteTypeListener__P456052_mk(s);
+    s.tmp_2 = EventTarget_deleteTypeListener__P467358_mk(s);
     s.tmp_2.arg0 = s.arg0;
     s.tmp_2.arg1 = s.arg1;
     s.callLocIdx = 83; s.pc = 7; return s.tmp_2;
@@ -1919,18 +1919,18 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-EventTarget_removeEventListener__P456055.info = {"start":1907,"length":365,"line":55,"column":4,"endLine":63,"endColumn":5,"fileName":"main.ts","functionName":"removeEventListener","argumentNames":["this","type","callback"]}
+EventTarget_removeEventListener__P467361.info = {"start":1907,"length":365,"line":55,"column":4,"endLine":63,"endColumn":5,"fileName":"main.ts","functionName":"removeEventListener","argumentNames":["this","type","callback"]}
 
-function EventTarget_removeEventListener__P456055_mk(s) {
+function EventTarget_removeEventListener__P467361_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: EventTarget_removeEventListener__P456055, depth: s.depth + 1,
+        parent: s, fn: EventTarget_removeEventListener__P467361, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  typeListeners___456160: undefined,
-  i___456164: undefined,
+  typeListeners___467466: undefined,
+  i___467470: undefined,
   arg0: undefined,
   arg1: undefined,
   arg2: undefined,
@@ -1940,7 +1940,7 @@ function EventTarget_removeEventListener__P456055_mk(s) {
 
 
 
-function EventTarget_deleteTypeListener__P456052(s) {
+function EventTarget_deleteTypeListener__P467358(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1956,7 +1956,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, EventTarget__C456050_VT)) failedCast(r0);
+    if (!checkSubtype(r0, EventTarget__C467356_VT)) failedCast(r0);
     r0 = s.arg0.fields["listeners"];
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt.mapSetGeneric(s.tmp_0, s.arg1, undefined);
@@ -1964,12 +1964,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-EventTarget_deleteTypeListener__P456052.info = {"start":770,"length":90,"line":27,"column":4,"endLine":29,"endColumn":5,"fileName":"main.ts","functionName":"deleteTypeListener","argumentNames":["this","type"]}
+EventTarget_deleteTypeListener__P467358.info = {"start":770,"length":90,"line":27,"column":4,"endLine":29,"endColumn":5,"fileName":"main.ts","functionName":"deleteTypeListener","argumentNames":["this","type"]}
 
-function EventTarget_deleteTypeListener__P456052_mk(s) {
+function EventTarget_deleteTypeListener__P467358_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: EventTarget_deleteTypeListener__P456052, depth: s.depth + 1,
+        parent: s, fn: EventTarget_deleteTypeListener__P467358, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -2038,7 +2038,7 @@ function helpers_arraySplice__P98_mk(s) {
 
 
 
-function EventTarget_getOrCreateTypeListeners__P456051(s) {
+function EventTarget_getOrCreateTypeListeners__P467357(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2048,19 +2048,19 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.typeListeners___456106 = undefined;
+    s.typeListeners___467412 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, EventTarget__C456050_VT)) failedCast(r0);
+    if (!checkSubtype(r0, EventTarget__C467356_VT)) failedCast(r0);
     r0 = s.arg0.fields["listeners"];
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt.mapGetGeneric(s.tmp_0, s.arg1);
-    s.typeListeners___456106 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.typeListeners___456106);
+    s.typeListeners___467412 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.typeListeners___467412);
     s.tmp_1 = r0;
     r0 = pxsim_Boolean__bang(s.tmp_1);
     s.tmp_0 = r0;
@@ -2072,26 +2072,26 @@ switch (step) {
     r0 = pxsim_Array__mk();
     s.tmp_4 = r0;
     r0 = pxsim_pxtrt.mapSetGeneric(s.tmp_2, s.tmp_3, s.tmp_4);
-    s.typeListeners___456106 = (s.tmp_4);
+    s.typeListeners___467412 = (s.tmp_4);
   case 1:
   case 2:
-    r0 = s.typeListeners___456106;
+    r0 = s.typeListeners___467412;
     return leave(s, r0)
   default: oops()
 } } }
-EventTarget_getOrCreateTypeListeners__P456051.info = {"start":547,"length":217,"line":20,"column":4,"endLine":25,"endColumn":5,"fileName":"main.ts","functionName":"getOrCreateTypeListeners","argumentNames":["this","type"]}
+EventTarget_getOrCreateTypeListeners__P467357.info = {"start":547,"length":217,"line":20,"column":4,"endLine":25,"endColumn":5,"fileName":"main.ts","functionName":"getOrCreateTypeListeners","argumentNames":["this","type"]}
 
-function EventTarget_getOrCreateTypeListeners__P456051_mk(s) {
+function EventTarget_getOrCreateTypeListeners__P467357_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: EventTarget_getOrCreateTypeListeners__P456051, depth: s.depth + 1,
+        parent: s, fn: EventTarget_getOrCreateTypeListeners__P467357, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
   tmp_3: undefined,
   tmp_4: undefined,
-  typeListeners___456106: undefined,
+  typeListeners___467412: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -2100,7 +2100,7 @@ function EventTarget_getOrCreateTypeListeners__P456051_mk(s) {
 
 
 
-function EventTarget_addEventListener__P456053(s) {
+function EventTarget_addEventListener__P467359(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2110,7 +2110,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.typeListeners___456129 = undefined;
+    s.typeListeners___467435 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -2118,37 +2118,37 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, EventTarget__C456050_VT)) failedCast(r0);
-    s.tmp_0 = EventTarget_getOrCreateTypeListeners__P456051_mk(s);
+    if (!checkSubtype(r0, EventTarget__C467356_VT)) failedCast(r0);
+    s.tmp_0 = EventTarget_getOrCreateTypeListeners__P467357_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.tmp_0.arg1 = s.arg1;
     s.callLocIdx = 79; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
-    s.typeListeners___456129 = (r0);
-    r0 = pxsim_Array_.indexOf(s.typeListeners___456129, s.arg2, undefined);
+    s.typeListeners___467435 = (r0);
+    r0 = pxsim_Array_.indexOf(s.typeListeners___467435, s.arg2, undefined);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 < 0);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    r0 = pxsim_Array__push(s.typeListeners___456129, s.arg2);
+    r0 = pxsim_Array__push(s.typeListeners___467435, s.arg2);
   case 1:
   case 2:
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-EventTarget_addEventListener__P456053.info = {"start":1053,"length":242,"line":34,"column":4,"endLine":38,"endColumn":5,"fileName":"main.ts","functionName":"addEventListener","argumentNames":["this","type","listener"]}
+EventTarget_addEventListener__P467359.info = {"start":1053,"length":242,"line":34,"column":4,"endLine":38,"endColumn":5,"fileName":"main.ts","functionName":"addEventListener","argumentNames":["this","type","listener"]}
 
-function EventTarget_addEventListener__P456053_mk(s) {
+function EventTarget_addEventListener__P467359_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: EventTarget_addEventListener__P456053, depth: s.depth + 1,
+        parent: s, fn: EventTarget_addEventListener__P467359, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
-  typeListeners___456129: undefined,
+  typeListeners___467435: undefined,
   arg0: undefined,
   arg1: undefined,
   arg2: undefined,
@@ -2158,7 +2158,7 @@ function EventTarget_addEventListener__P456053_mk(s) {
 
 
 
-function WebSocket_onopen__P456064(s) {
+function WebSocket_onopen__P467370(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2173,18 +2173,18 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, WebSocket__C456048_VT)) failedCast(r0);
+    if (!checkSubtype(r0, WebSocket__C467354_VT)) failedCast(r0);
     r0 = null;
     return leaveAccessor(s, r0)
   default: oops()
 } } }
-WebSocket_onopen__P456064.info = {"start":6452,"length":52,"line":194,"column":4,"endLine":194,"endColumn":56,"fileName":"main.ts","functionName":"onopen","argumentNames":["this"]}
-WebSocket_onopen__P456064.isGetter = true;
+WebSocket_onopen__P467370.info = {"start":6457,"length":52,"line":193,"column":4,"endLine":193,"endColumn":56,"fileName":"main.ts","functionName":"onopen","argumentNames":["this"]}
+WebSocket_onopen__P467370.isGetter = true;
 
-function WebSocket_onopen__P456064_mk(s) {
+function WebSocket_onopen__P467370_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: WebSocket_onopen__P456064, depth: s.depth + 1,
+        parent: s, fn: WebSocket_onopen__P467370, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   arg0: undefined,
 } }
@@ -2193,7 +2193,7 @@ function WebSocket_onopen__P456064_mk(s) {
 
 
 
-function WebSocket_onmessage__P456063(s) {
+function WebSocket_onmessage__P467369(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2209,21 +2209,21 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, WebSocket__C456048_VT)) failedCast(r0);
+    if (!checkSubtype(r0, WebSocket__C467354_VT)) failedCast(r0);
     r0 = pxsim_numops_toBoolDecr(s.arg1);
     if (!r0) { step = 1; continue; }
-    s.tmp_0 = EventTarget_addEventListener__P456053_mk(s);
+    s.tmp_0 = EventTarget_addEventListener__P467359_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = globals.MESSAGE_EVENT_TYPE___456072;
+    s.tmp_0.arg1 = globals.MESSAGE_EVENT_TYPE___467378;
     s.tmp_0.arg2 = s.arg1;
     s.callLocIdx = 106; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
     { step = 2; continue; }
   case 1:
-    s.tmp_0 = EventTarget_removeEventListener__P456055_mk(s);
+    s.tmp_0 = EventTarget_removeEventListener__P467361_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = globals.MESSAGE_EVENT_TYPE___456072;
+    s.tmp_0.arg1 = globals.MESSAGE_EVENT_TYPE___467378;
     s.tmp_0.arg2 = s.arg1;
     s.callLocIdx = 107; s.pc = 4; return s.tmp_0;
   case 4:
@@ -2233,12 +2233,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-WebSocket_onmessage__P456063.info = {"start":6223,"length":224,"line":188,"column":4,"endLine":193,"endColumn":5,"fileName":"main.ts","functionName":"onmessage","argumentNames":["this","handler"]}
+WebSocket_onmessage__P467369.info = {"start":6228,"length":224,"line":187,"column":4,"endLine":192,"endColumn":5,"fileName":"main.ts","functionName":"onmessage","argumentNames":["this","handler"]}
 
-function WebSocket_onmessage__P456063_mk(s) {
+function WebSocket_onmessage__P467369_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: WebSocket_onmessage__P456063, depth: s.depth + 1,
+        parent: s, fn: WebSocket_onmessage__P467369, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -2249,7 +2249,7 @@ function WebSocket_onmessage__P456063_mk(s) {
 
 
 
-function WebSocket_onmessage__P456062(s) {
+function WebSocket_onmessage__P467368(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2264,18 +2264,18 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, WebSocket__C456048_VT)) failedCast(r0);
+    if (!checkSubtype(r0, WebSocket__C467354_VT)) failedCast(r0);
     r0 = null;
     return leaveAccessor(s, r0)
   default: oops()
 } } }
-WebSocket_onmessage__P456062.info = {"start":6156,"length":62,"line":187,"column":4,"endLine":187,"endColumn":66,"fileName":"main.ts","functionName":"onmessage","argumentNames":["this"]}
-WebSocket_onmessage__P456062.isGetter = true;
+WebSocket_onmessage__P467368.info = {"start":6161,"length":62,"line":186,"column":4,"endLine":186,"endColumn":66,"fileName":"main.ts","functionName":"onmessage","argumentNames":["this"]}
+WebSocket_onmessage__P467368.isGetter = true;
 
-function WebSocket_onmessage__P456062_mk(s) {
+function WebSocket_onmessage__P467368_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: WebSocket_onmessage__P456062, depth: s.depth + 1,
+        parent: s, fn: WebSocket_onmessage__P467368, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   arg0: undefined,
 } }
@@ -2284,7 +2284,7 @@ function WebSocket_onmessage__P456062_mk(s) {
 
 
 
-function WebSocket_onerror__P456061(s) {
+function WebSocket_onerror__P467367(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2300,21 +2300,21 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, WebSocket__C456048_VT)) failedCast(r0);
+    if (!checkSubtype(r0, WebSocket__C467354_VT)) failedCast(r0);
     r0 = pxsim_numops_toBoolDecr(s.arg1);
     if (!r0) { step = 1; continue; }
-    s.tmp_0 = EventTarget_addEventListener__P456053_mk(s);
+    s.tmp_0 = EventTarget_addEventListener__P467359_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = globals.ERROR_EVENT_TYPE___456092;
+    s.tmp_0.arg1 = globals.ERROR_EVENT_TYPE___467398;
     s.tmp_0.arg2 = s.arg1;
     s.callLocIdx = 104; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
     { step = 2; continue; }
   case 1:
-    s.tmp_0 = EventTarget_removeEventListener__P456055_mk(s);
+    s.tmp_0 = EventTarget_removeEventListener__P467361_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = globals.ERROR_EVENT_TYPE___456092;
+    s.tmp_0.arg1 = globals.ERROR_EVENT_TYPE___467398;
     s.tmp_0.arg2 = s.arg1;
     s.callLocIdx = 105; s.pc = 4; return s.tmp_0;
   case 4:
@@ -2324,12 +2324,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-WebSocket_onerror__P456061.info = {"start":5940,"length":211,"line":181,"column":4,"endLine":186,"endColumn":5,"fileName":"main.ts","functionName":"onerror","argumentNames":["this","handler"]}
+WebSocket_onerror__P467367.info = {"start":5945,"length":211,"line":180,"column":4,"endLine":185,"endColumn":5,"fileName":"main.ts","functionName":"onerror","argumentNames":["this","handler"]}
 
-function WebSocket_onerror__P456061_mk(s) {
+function WebSocket_onerror__P467367_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: WebSocket_onerror__P456061, depth: s.depth + 1,
+        parent: s, fn: WebSocket_onerror__P467367, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -2340,7 +2340,7 @@ function WebSocket_onerror__P456061_mk(s) {
 
 
 
-function WebSocket_onerror__P456060(s) {
+function WebSocket_onerror__P467366(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2355,18 +2355,18 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, WebSocket__C456048_VT)) failedCast(r0);
+    if (!checkSubtype(r0, WebSocket__C467354_VT)) failedCast(r0);
     r0 = null;
     return leaveAccessor(s, r0)
   default: oops()
 } } }
-WebSocket_onerror__P456060.info = {"start":5882,"length":53,"line":180,"column":4,"endLine":180,"endColumn":57,"fileName":"main.ts","functionName":"onerror","argumentNames":["this"]}
-WebSocket_onerror__P456060.isGetter = true;
+WebSocket_onerror__P467366.info = {"start":5887,"length":53,"line":179,"column":4,"endLine":179,"endColumn":57,"fileName":"main.ts","functionName":"onerror","argumentNames":["this"]}
+WebSocket_onerror__P467366.isGetter = true;
 
-function WebSocket_onerror__P456060_mk(s) {
+function WebSocket_onerror__P467366_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: WebSocket_onerror__P456060, depth: s.depth + 1,
+        parent: s, fn: WebSocket_onerror__P467366, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   arg0: undefined,
 } }
@@ -2375,7 +2375,7 @@ function WebSocket_onerror__P456060_mk(s) {
 
 
 
-function WebSocket_readyState__P456066(s) {
+function WebSocket_readyState__P467372(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2390,18 +2390,18 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, WebSocket__C456048_VT)) failedCast(r0);
+    if (!checkSubtype(r0, WebSocket__C467354_VT)) failedCast(r0);
     r0 = s.arg0.fields["_readyState"];
     return leaveAccessor(s, r0)
   default: oops()
 } } }
-WebSocket_readyState__P456066.info = {"start":6842,"length":65,"line":205,"column":4,"endLine":207,"endColumn":5,"fileName":"main.ts","functionName":"readyState","argumentNames":["this"]}
-WebSocket_readyState__P456066.isGetter = true;
+WebSocket_readyState__P467372.info = {"start":6847,"length":65,"line":204,"column":4,"endLine":206,"endColumn":5,"fileName":"main.ts","functionName":"readyState","argumentNames":["this"]}
+WebSocket_readyState__P467372.isGetter = true;
 
-function WebSocket_readyState__P456066_mk(s) {
+function WebSocket_readyState__P467372_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: WebSocket_readyState__P456066, depth: s.depth + 1,
+        parent: s, fn: WebSocket_readyState__P467372, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   arg0: undefined,
 } }
@@ -2410,7 +2410,7 @@ function WebSocket_readyState__P456066_mk(s) {
 
 
 
-function WebSocket_constructor__P456069(s) {
+function WebSocket_constructor__P467375(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2426,50 +2426,45 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, WebSocket__C456048_VT)) failedCast(r0);
+    if (!checkSubtype(r0, WebSocket__C467354_VT)) failedCast(r0);
     s.tmp_0 = r0 = s.arg0;
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_1 = r0;
     r0 = (s.tmp_0).fields["listeners"] = (s.tmp_1);
-    r0 = (globals.nextId___456231 + 1);
+    r0 = (globals.nextId___467537 + 1);
     s.tmp_2 = r0;
-    globals.nextId___456231 = (r0);
+    globals.nextId___467537 = (r0);
     s.tmp_3 = r0 = s.arg0;
     r0 = (s.tmp_2 % 255);
     s.tmp_4 = r0;
     r0 = (s.tmp_3).fields["_id"] = (s.tmp_4);
-    s.tmp_5 = EventTarget_constructor__P456101_mk(s);
+    s.tmp_5 = EventTarget_constructor__P467407_mk(s);
     s.tmp_5.arg0 = s.arg0;
     s.callLocIdx = 86; s.pc = 1; return s.tmp_5;
   case 1:
     r0 = s.retval;
     r0 = (s.arg0).fields["_url"] = (s.arg1);
-    s.tmp_0 = WebSocket_registerHandlers__P456056_mk(s);
+    s.tmp_0 = WebSocket_registerHandlers__P467362_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.callLocIdx = 87; s.pc = 2; return s.tmp_0;
   case 2:
     r0 = s.retval;
-    r0 = (s.arg0).fields["_readyState"] = (globals.WebSocket_CLOSED___456249);
-    s.tmp_0 = WebSocket_registerHandlers__P456056_mk(s);
+    r0 = (s.arg0).fields["_readyState"] = (globals.WebSocket_CLOSED___467555);
+    s.tmp_0 = WebSocket_open__P467374_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.callLocIdx = 88; s.pc = 3; return s.tmp_0;
   case 3:
-    r0 = s.retval;
-    s.tmp_0 = WebSocket_open__P456068_mk(s);
-    s.tmp_0.arg0 = s.arg0;
-    s.callLocIdx = 89; s.pc = 4; return s.tmp_0;
-  case 4:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-WebSocket_constructor__P456069.info = {"start":3763,"length":215,"line":118,"column":4,"endLine":126,"endColumn":5,"fileName":"main.ts","functionName":"inline","argumentNames":["this","url"]}
+WebSocket_constructor__P467375.info = {"start":3763,"length":181,"line":118,"column":4,"endLine":124,"endColumn":5,"fileName":"main.ts","functionName":"inline","argumentNames":["this","url"]}
 
-function WebSocket_constructor__P456069_mk(s) {
+function WebSocket_constructor__P467375_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: WebSocket_constructor__P456069, depth: s.depth + 1,
+        parent: s, fn: WebSocket_constructor__P467375, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -2485,7 +2480,7 @@ function WebSocket_constructor__P456069_mk(s) {
 
 
 
-function WebSocket_open__P456068(s) {
+function WebSocket_open__P467374(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2495,46 +2490,46 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.urlBuffer___456507 = undefined;
-    s.msg___456512 = undefined;
+    s.urlBuffer___467813 = undefined;
+    s.msg___467818 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, WebSocket__C456048_VT)) failedCast(r0);
+    if (!checkSubtype(r0, WebSocket__C467354_VT)) failedCast(r0);
     r0 = s.arg0.fields["_url"];
     s.tmp_0 = r0;
     r0 = pxsim.control.createBufferFromUTF8(s.tmp_0);
-    s.urlBuffer___456507 = (r0);
-    r0 = pxsim.BufferMethods.length(s.urlBuffer___456507);
+    s.urlBuffer___467813 = (r0);
+    r0 = pxsim.BufferMethods.length(s.urlBuffer___467813);
     s.tmp_1 = r0;
     r0 = (2 + s.tmp_1);
     s.tmp_0 = r0;
     r0 = pxsim.control.createBuffer(s.tmp_0);
-    s.msg___456512 = (r0);
-    r0 = pxsim.BufferMethods.setByte(s.msg___456512, 0, 4);
+    s.msg___467818 = (r0);
+    r0 = pxsim.BufferMethods.setByte(s.msg___467818, 0, 4);
     r0 = s.arg0.fields["_id"];
     s.tmp_0 = r0;
-    r0 = pxsim.BufferMethods.setByte(s.msg___456512, 1, s.tmp_0);
-    r0 = pxsim.BufferMethods.write(s.msg___456512, 2, s.urlBuffer___456507);
-    r0 = (s.arg0).fields["_readyState"] = (globals.WebSocket_CONNECTING___456301);
-    r0 = pxsim_pxtcore.sendMessage(globals.CHANNEL___456199, s.msg___456512, true);
+    r0 = pxsim.BufferMethods.setByte(s.msg___467818, 1, s.tmp_0);
+    r0 = pxsim.BufferMethods.write(s.msg___467818, 2, s.urlBuffer___467813);
+    r0 = (s.arg0).fields["_readyState"] = (globals.WebSocket_CONNECTING___467607);
+    r0 = pxsim_pxtcore.sendMessage(globals.CHANNEL___467505, s.msg___467818, true);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-WebSocket_open__P456068.info = {"start":8474,"length":357,"line":252,"column":4,"endLine":262,"endColumn":5,"fileName":"main.ts","functionName":"open","argumentNames":["this"]}
+WebSocket_open__P467374.info = {"start":8479,"length":357,"line":251,"column":4,"endLine":261,"endColumn":5,"fileName":"main.ts","functionName":"open","argumentNames":["this"]}
 
-function WebSocket_open__P456068_mk(s) {
+function WebSocket_open__P467374_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: WebSocket_open__P456068, depth: s.depth + 1,
+        parent: s, fn: WebSocket_open__P467374, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
-  urlBuffer___456507: undefined,
-  msg___456512: undefined,
+  urlBuffer___467813: undefined,
+  msg___467818: undefined,
   arg0: undefined,
 } }
 
@@ -2542,7 +2537,7 @@ function WebSocket_open__P456068_mk(s) {
 
 
 
-function WebSocket_registerHandlers__P456056(s) {
+function WebSocket_registerHandlers__P467362(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2557,17 +2552,17 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, WebSocket__C456048_VT)) failedCast(r0);
+    if (!checkSubtype(r0, WebSocket__C467354_VT)) failedCast(r0);
     s.tmp_0 = console_log__P369_mk(s);
     s.tmp_0.arg0 = "register";
-    s.callLocIdx = 90; s.pc = 1; return s.tmp_0;
+    s.callLocIdx = 89; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, inline__P456257);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P467562);
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
     s.tmp_1 = control_simmessages_onReceived__P421_mk(s);
-    s.tmp_1.arg0 = globals.CHANNEL___456199;
+    s.tmp_1.arg0 = globals.CHANNEL___467505;
     s.tmp_1.arg1 = s.tmp_0;
     s.callLocIdx = 92; s.pc = 2; return s.tmp_1;
   case 2:
@@ -2576,12 +2571,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-WebSocket_registerHandlers__P456056.info = {"start":3984,"length":181,"line":128,"column":4,"endLine":133,"endColumn":5,"fileName":"main.ts","functionName":"registerHandlers","argumentNames":["this"]}
+WebSocket_registerHandlers__P467362.info = {"start":3950,"length":220,"line":126,"column":4,"endLine":132,"endColumn":5,"fileName":"main.ts","functionName":"registerHandlers","argumentNames":["this"]}
 
-function WebSocket_registerHandlers__P456056_mk(s) {
+function WebSocket_registerHandlers__P467362_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: WebSocket_registerHandlers__P456056, depth: s.depth + 1,
+        parent: s, fn: WebSocket_registerHandlers__P467362, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -2592,7 +2587,7 @@ function WebSocket_registerHandlers__P456056_mk(s) {
 
 
 
-function inline__P456257(s) {
+function inline__P467562(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2606,22 +2601,27 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    s.tmp_0 = WebSocket_handleMessage__P456057_mk(s);
+    s.tmp_0 = console_log__P369_mk(s);
+    s.tmp_0.arg0 = "channel msg";
+    s.callLocIdx = 90; s.pc = 1; return s.tmp_0;
+  case 1:
+    r0 = s.retval;
+    s.tmp_0 = WebSocket_handleMessage__P467363_mk(s);
     s.tmp_0.arg0 = s.caps[0];
     s.tmp_0.arg1 = s.arg0;
-    s.callLocIdx = 91; s.pc = 1; return s.tmp_0;
-  case 1:
+    s.callLocIdx = 91; s.pc = 2; return s.tmp_0;
+  case 2:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-inline__P456257.info = {"start":4093,"length":65,"line":130,"column":48,"endLine":132,"endColumn":9,"fileName":"main.ts","functionName":"inline","argumentNames":["msg"]}
+inline__P467562.info = {"start":4059,"length":104,"line":128,"column":48,"endLine":131,"endColumn":9,"fileName":"main.ts","functionName":"inline","argumentNames":["msg"]}
 
-function inline__P456257_mk(s) {
+function inline__P467562_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P456257, depth: s.depth + 1,
+        parent: s, fn: inline__P467562, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -2631,7 +2631,7 @@ function inline__P456257_mk(s) {
 
 
 
-function WebSocket_handleMessage__P456057(s) {
+function WebSocket_handleMessage__P467363(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2641,30 +2641,30 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.type___456263 = undefined;
-    s.id___456266 = undefined;
-    s.isString___456321 = undefined;
-    s.dataBuffer___456328 = undefined;
-    s.data___456334 = undefined;
-    s.code___456351 = undefined;
+    s.type___467569 = undefined;
+    s.id___467572 = undefined;
+    s.isString___467627 = undefined;
+    s.dataBuffer___467634 = undefined;
+    s.data___467640 = undefined;
+    s.code___467657 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, WebSocket__C456048_VT)) failedCast(r0);
+    if (!checkSubtype(r0, WebSocket__C467354_VT)) failedCast(r0);
     r0 = pxsim.BufferMethods.getByte(s.arg1, 0);
-    s.type___456263 = (r0);
+    s.type___467569 = (r0);
     r0 = pxsim.BufferMethods.getByte(s.arg1, 1);
-    s.id___456266 = (r0);
+    s.id___467572 = (r0);
     s.tmp_0 = console_log__P369_mk(s);
-    if ((s.type___456263) && (s.type___456263).vtable) {
+    if ((s.type___467569) && (s.type___467569).vtable) {
     setupResume(s, 19);
-    pxsim_String__stringConv(s.type___456263);
+    pxsim_String__stringConv(s.type___467569);
     checkResumeConsumed();
     return;
-    } else { s.retval = (s.type___456263) + ""; }
+    } else { s.retval = (s.type___467569) + ""; }
   case 19:
     r0 = s.retval;
     s.tmp_3 = r0;
@@ -2672,12 +2672,12 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_String__concat(s.tmp_2, " id ");
     s.tmp_1 = r0;
-    if ((s.id___456266) && (s.id___456266).vtable) {
+    if ((s.id___467572) && (s.id___467572).vtable) {
     setupResume(s, 20);
-    pxsim_String__stringConv(s.id___456266);
+    pxsim_String__stringConv(s.id___467572);
     checkResumeConsumed();
     return;
-    } else { s.retval = (s.id___456266) + ""; }
+    } else { s.retval = (s.id___467572) + ""; }
   case 20:
     r0 = s.retval;
     s.tmp_4 = r0;
@@ -2688,17 +2688,17 @@ switch (step) {
     r0 = s.retval;
     r0 = s.arg0.fields["_id"];
     s.tmp_1 = r0;
-    r0 = (s.id___456266 !== s.tmp_1);
+    r0 = (s.id___467572 !== s.tmp_1);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
     s.tmp_2 = console_log__P369_mk(s);
-    if ((s.id___456266) && (s.id___456266).vtable) {
+    if ((s.id___467572) && (s.id___467572).vtable) {
     setupResume(s, 22);
-    pxsim_String__stringConv(s.id___456266);
+    pxsim_String__stringConv(s.id___467572);
     checkResumeConsumed();
     return;
-    } else { s.retval = (s.id___456266) + ""; }
+    } else { s.retval = (s.id___467572) + ""; }
   case 22:
     r0 = s.retval;
     s.tmp_5 = r0;
@@ -2725,29 +2725,29 @@ switch (step) {
     { step = 17; continue; }
   case 1:
   case 2:
-    r0 = (s.type___456263 === 4);
+    r0 = (s.type___467569 === 4);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 5; continue; }
     r0 = s.arg0.fields["_readyState"];
     s.tmp_2 = r0;
-    r0 = (s.tmp_2 !== globals.WebSocket_CONNECTING___456301);
+    r0 = (s.tmp_2 !== globals.WebSocket_CONNECTING___467607);
     s.tmp_1 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_1);
     if (!r0) { step = 3; continue; }
     r0 = pxsim_pxtcore.throwValue("socket not connecting");
   case 3:
   case 4:
-    r0 = (s.arg0).fields["_readyState"] = (globals.WebSocket_OPEN___456070);
-    r0 = pxsim_pxtcore_mkClassInstance(Event__C456077_VT);
+    r0 = (s.arg0).fields["_readyState"] = (globals.WebSocket_OPEN___467376);
+    r0 = pxsim_pxtcore_mkClassInstance(Event__C467383_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = Event_constructor__P456094_mk(s);
+    s.tmp_1 = Event_constructor__P467400_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = globals.OPEN_EVENT_TYPE___456088;
+    s.tmp_1.arg1 = globals.OPEN_EVENT_TYPE___467394;
     s.callLocIdx = 95; s.pc = 24; return s.tmp_1;
   case 24:
     r0 = s.retval;
-    s.tmp_2 = EventTarget_dispatchEvent__P456054_mk(s);
+    s.tmp_2 = EventTarget_dispatchEvent__P467360_mk(s);
     s.tmp_2.arg0 = s.arg0;
     s.tmp_2.arg1 = s.tmp_0;
     s.callLocIdx = 96; s.pc = 25; return s.tmp_2;
@@ -2756,7 +2756,7 @@ switch (step) {
     { step = 17; continue; }
     { step = 16; continue; }
   case 5:
-    r0 = (s.type___456263 & 2);
+    r0 = (s.type___467569 & 2);
     s.tmp_1 = r0;
     r0 = (s.tmp_1 === 2);
     s.tmp_0 = r0;
@@ -2769,38 +2769,38 @@ switch (step) {
     r0 = s.retval;
     r0 = s.arg0.fields["_readyState"];
     s.tmp_1 = r0;
-    r0 = (s.tmp_1 !== globals.WebSocket_OPEN___456070);
+    r0 = (s.tmp_1 !== globals.WebSocket_OPEN___467376);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 6; continue; }
     r0 = pxsim_pxtcore.throwValue("socket not open");
   case 6:
   case 7:
-    r0 = (s.type___456263 & 16);
+    r0 = (s.type___467569 & 16);
     s.tmp_2 = r0;
     r0 = (s.tmp_2 == 16);
-    s.isString___456321 = (r0);
+    s.isString___467627 = (r0);
     r0 = pxsim.BufferMethods.slice(s.arg1, 2, -1);
-    s.dataBuffer___456328 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.isString___456321);
+    s.dataBuffer___467634 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.isString___467627);
     if (!r0) { step = 8; continue; }
-    r0 = pxsim.BufferMethods.toString(s.dataBuffer___456328);
+    r0 = pxsim.BufferMethods.toString(s.dataBuffer___467634);
     { step = 9; continue; }
   case 8:
-    r0 = s.dataBuffer___456328;
+    r0 = s.dataBuffer___467634;
   case 9:
     // jmp value (already in r0)
     s.tmp_0 = r0;
-    s.data___456334 = (s.tmp_0);
-    r0 = pxsim_pxtcore_mkClassInstance(MessageEvent__C456075_VT);
+    s.data___467640 = (s.tmp_0);
+    r0 = pxsim_pxtcore_mkClassInstance(MessageEvent__C467381_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = MessageEvent_constructor__P456191_mk(s);
+    s.tmp_1 = MessageEvent_constructor__P467497_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = s.data___456334;
+    s.tmp_1.arg1 = s.data___467640;
     s.callLocIdx = 98; s.pc = 27; return s.tmp_1;
   case 27:
     r0 = s.retval;
-    s.tmp_2 = EventTarget_dispatchEvent__P456054_mk(s);
+    s.tmp_2 = EventTarget_dispatchEvent__P467360_mk(s);
     s.tmp_2.arg0 = s.arg0;
     s.tmp_2.arg1 = s.tmp_0;
     s.callLocIdx = 99; s.pc = 28; return s.tmp_2;
@@ -2808,23 +2808,23 @@ switch (step) {
     r0 = s.retval;
     { step = 15; continue; }
   case 10:
-    r0 = (s.type___456263 === 1);
+    r0 = (s.type___467569 === 1);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 11; continue; }
     r0 = (s.arg0).fields["_id"] = (undefined);
     r0 = pxsim.BufferMethods.getNumber(s.arg1, 11, 2);
-    s.code___456351 = (r0);
-    r0 = (s.arg0).fields["_readyState"] = (globals.WebSocket_CLOSED___456249);
-    r0 = pxsim_pxtcore_mkClassInstance(CloseEvent__C456180_VT);
+    s.code___467657 = (r0);
+    r0 = (s.arg0).fields["_readyState"] = (globals.WebSocket_CLOSED___467555);
+    r0 = pxsim_pxtcore_mkClassInstance(CloseEvent__C467486_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = CloseEvent_constructor__P456182_mk(s);
+    s.tmp_1 = CloseEvent_constructor__P467488_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
-    s.tmp_1.arg1 = s.code___456351;
+    s.tmp_1.arg1 = s.code___467657;
     s.callLocIdx = 100; s.pc = 29; return s.tmp_1;
   case 29:
     r0 = s.retval;
-    s.tmp_2 = EventTarget_dispatchEvent__P456054_mk(s);
+    s.tmp_2 = EventTarget_dispatchEvent__P467360_mk(s);
     s.tmp_2.arg0 = s.arg0;
     s.tmp_2.arg1 = s.tmp_0;
     s.callLocIdx = 101; s.pc = 30; return s.tmp_2;
@@ -2832,19 +2832,19 @@ switch (step) {
     r0 = s.retval;
     { step = 14; continue; }
   case 11:
-    r0 = (s.type___456263 === 8);
+    r0 = (s.type___467569 === 8);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 12; continue; }
-    r0 = pxsim_pxtcore_mkClassInstance(Event__C456077_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(Event__C467383_VT);
     s.tmp_1 = r0;
-    s.tmp_2 = Event_constructor__P456094_mk(s);
+    s.tmp_2 = Event_constructor__P467400_mk(s);
     s.tmp_2.arg0 = s.tmp_1;
-    s.tmp_2.arg1 = globals.ERROR_EVENT_TYPE___456092;
+    s.tmp_2.arg1 = globals.ERROR_EVENT_TYPE___467398;
     s.callLocIdx = 102; s.pc = 31; return s.tmp_2;
   case 31:
     r0 = s.retval;
-    s.tmp_3 = EventTarget_dispatchEvent__P456054_mk(s);
+    s.tmp_3 = EventTarget_dispatchEvent__P467360_mk(s);
     s.tmp_3.arg0 = s.arg0;
     s.tmp_3.arg1 = s.tmp_1;
     s.callLocIdx = 103; s.pc = 32; return s.tmp_3;
@@ -2860,12 +2860,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-WebSocket_handleMessage__P456057.info = {"start":4171,"length":1421,"line":135,"column":4,"endLine":171,"endColumn":5,"fileName":"main.ts","functionName":"handleMessage","argumentNames":["this","msg"]}
+WebSocket_handleMessage__P467363.info = {"start":4176,"length":1421,"line":134,"column":4,"endLine":170,"endColumn":5,"fileName":"main.ts","functionName":"handleMessage","argumentNames":["this","msg"]}
 
-function WebSocket_handleMessage__P456057_mk(s) {
+function WebSocket_handleMessage__P467363_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: WebSocket_handleMessage__P456057, depth: s.depth + 1,
+        parent: s, fn: WebSocket_handleMessage__P467363, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -2875,12 +2875,12 @@ function WebSocket_handleMessage__P456057_mk(s) {
   tmp_5: undefined,
   tmp_6: undefined,
   tmp_7: undefined,
-  type___456263: undefined,
-  id___456266: undefined,
-  isString___456321: undefined,
-  dataBuffer___456328: undefined,
-  data___456334: undefined,
-  code___456351: undefined,
+  type___467569: undefined,
+  id___467572: undefined,
+  isString___467627: undefined,
+  dataBuffer___467634: undefined,
+  data___467640: undefined,
+  code___467657: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -2889,7 +2889,7 @@ function WebSocket_handleMessage__P456057_mk(s) {
 
 
 
-function CloseEvent_constructor__P456182(s) {
+function CloseEvent_constructor__P467488(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2905,10 +2905,10 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, CloseEvent__C456180_VT)) failedCast(r0);
-    s.tmp_0 = Event_constructor__P456094_mk(s);
+    if (!checkSubtype(r0, CloseEvent__C467486_VT)) failedCast(r0);
+    s.tmp_0 = Event_constructor__P467400_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = globals.CLOSE_EVENT_TYPE___456090;
+    s.tmp_0.arg1 = globals.CLOSE_EVENT_TYPE___467396;
     s.callLocIdx = 84; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
@@ -2917,12 +2917,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-CloseEvent_constructor__P456182.info = {"start":2608,"length":92,"line":73,"column":4,"endLine":76,"endColumn":5,"fileName":"main.ts","functionName":"inline","argumentNames":["this","code"]}
+CloseEvent_constructor__P467488.info = {"start":2608,"length":92,"line":73,"column":4,"endLine":76,"endColumn":5,"fileName":"main.ts","functionName":"inline","argumentNames":["this","code"]}
 
-function CloseEvent_constructor__P456182_mk(s) {
+function CloseEvent_constructor__P467488_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: CloseEvent_constructor__P456182, depth: s.depth + 1,
+        parent: s, fn: CloseEvent_constructor__P467488, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -2933,7 +2933,7 @@ function CloseEvent_constructor__P456182_mk(s) {
 
 
 
-function MessageEvent_constructor__P456191(s) {
+function MessageEvent_constructor__P467497(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2949,10 +2949,10 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, MessageEvent__C456075_VT)) failedCast(r0);
-    s.tmp_0 = Event_constructor__P456094_mk(s);
+    if (!checkSubtype(r0, MessageEvent__C467381_VT)) failedCast(r0);
+    s.tmp_0 = Event_constructor__P467400_mk(s);
     s.tmp_0.arg0 = s.arg0;
-    s.tmp_0.arg1 = globals.MESSAGE_EVENT_TYPE___456072;
+    s.tmp_0.arg1 = globals.MESSAGE_EVENT_TYPE___467378;
     s.callLocIdx = 85; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
@@ -2961,12 +2961,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-MessageEvent_constructor__P456191.info = {"start":2882,"length":103,"line":86,"column":4,"endLine":89,"endColumn":5,"fileName":"main.ts","functionName":"inline","argumentNames":["this","data"]}
+MessageEvent_constructor__P467497.info = {"start":2882,"length":103,"line":86,"column":4,"endLine":89,"endColumn":5,"fileName":"main.ts","functionName":"inline","argumentNames":["this","data"]}
 
-function MessageEvent_constructor__P456191_mk(s) {
+function MessageEvent_constructor__P467497_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: MessageEvent_constructor__P456191, depth: s.depth + 1,
+        parent: s, fn: MessageEvent_constructor__P467497, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -2977,7 +2977,7 @@ function MessageEvent_constructor__P456191_mk(s) {
 
 
 
-function Event_constructor__P456094(s) {
+function Event_constructor__P467400(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2993,18 +2993,18 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, Event__C456077_VT)) failedCast(r0);
+    if (!checkSubtype(r0, Event__C467383_VT)) failedCast(r0);
     r0 = (s.arg0).fields["type"] = (s.arg1);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-Event_constructor__P456094.info = {"start":180,"length":59,"line":7,"column":4,"endLine":9,"endColumn":5,"fileName":"main.ts","functionName":"inline","argumentNames":["this","type"]}
+Event_constructor__P467400.info = {"start":180,"length":59,"line":7,"column":4,"endLine":9,"endColumn":5,"fileName":"main.ts","functionName":"inline","argumentNames":["this","type"]}
 
-function Event_constructor__P456094_mk(s) {
+function Event_constructor__P467400_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: Event_constructor__P456094, depth: s.depth + 1,
+        parent: s, fn: Event_constructor__P467400, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   arg0: undefined,
   arg1: undefined,
@@ -3014,7 +3014,7 @@ function Event_constructor__P456094_mk(s) {
 
 
 
-function EventTarget_dispatchEvent__P456054(s) {
+function EventTarget_dispatchEvent__P467360(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3024,68 +3024,68 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.typeListeners___456145 = undefined;
-    s.listener___456153 = undefined;
-    s.unnamed6786___U2 = undefined;
-    s.unnamed6787___U3 = undefined;
+    s.typeListeners___467451 = undefined;
+    s.listener___467459 = undefined;
+    s.unnamed6922___U2 = undefined;
+    s.unnamed6923___U3 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, EventTarget__C456050_VT)) failedCast(r0);
+    if (!checkSubtype(r0, EventTarget__C467356_VT)) failedCast(r0);
     r0 = s.arg0.fields["listeners"];
     s.tmp_0 = r0;
     r0 = s.arg1.fields["type"];
     s.tmp_1 = r0;
     r0 = pxsim_pxtrt.mapGetGeneric(s.tmp_0, s.tmp_1);
-    s.typeListeners___456145 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.typeListeners___456145);
+    s.typeListeners___467451 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.typeListeners___467451);
     if (!r0) { step = 3; continue; }
-    s.listener___456153 = (undefined);
-    s.unnamed6786___U2 = (s.typeListeners___456145);
-    s.unnamed6787___U3 = (0);
+    s.listener___467459 = (undefined);
+    s.unnamed6922___U2 = (s.typeListeners___467451);
+    s.unnamed6923___U3 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed6787___U3;
-    r0 = pxsim_Array__length(s.unnamed6786___U2);
+    s.tmp_0 = r0 = s.unnamed6923___U3;
+    r0 = pxsim_Array__length(s.unnamed6922___U2);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed6786___U2, s.unnamed6787___U3);
-    s.listener___456153 = (r0);
+    r0 = pxsim_Array__getAt(s.unnamed6922___U2, s.unnamed6923___U3);
+    s.listener___467459 = (r0);
     s.tmp_2 = lambda_2_mk(s);
-    s.tmp_2.argL = s.listener___456153;
+    s.tmp_2.argL = s.listener___467459;
     s.tmp_2.arg0 = s.arg1;
     setupLambda(s.tmp_2, s.tmp_2.argL);
     s.callLocIdx = 80; s.pc = 5; return s.tmp_2;
   case 5:
     r0 = s.retval;
-    r0 = (s.unnamed6787___U3 + 1);
-    s.unnamed6787___U3 = (r0);
+    r0 = (s.unnamed6923___U3 + 1);
+    s.unnamed6923___U3 = (r0);
     { step = 1; continue; }
   case 2:
-    s.unnamed6786___U2 = (undefined);
+    s.unnamed6922___U2 = (undefined);
   case 3:
   case 4:
     r0 = true;
     return leave(s, r0)
   default: oops()
 } } }
-EventTarget_dispatchEvent__P456054.info = {"start":1509,"length":268,"line":43,"column":4,"endLine":51,"endColumn":5,"fileName":"main.ts","functionName":"dispatchEvent","argumentNames":["this","event"]}
+EventTarget_dispatchEvent__P467360.info = {"start":1509,"length":268,"line":43,"column":4,"endLine":51,"endColumn":5,"fileName":"main.ts","functionName":"dispatchEvent","argumentNames":["this","event"]}
 
-function EventTarget_dispatchEvent__P456054_mk(s) {
+function EventTarget_dispatchEvent__P467360_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: EventTarget_dispatchEvent__P456054, depth: s.depth + 1,
+        parent: s, fn: EventTarget_dispatchEvent__P467360, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  typeListeners___456145: undefined,
-  listener___456153: undefined,
-  unnamed6786___U2: undefined,
-  unnamed6787___U3: undefined,
+  typeListeners___467451: undefined,
+  listener___467459: undefined,
+  unnamed6922___U2: undefined,
+  unnamed6923___U3: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -3605,7 +3605,7 @@ function inline__P6071_mk(s) {
 
 
 
-function EventTarget_constructor__P456101(s) {
+function EventTarget_constructor__P467407(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -3620,7 +3620,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, EventTarget__C456050_VT)) failedCast(r0);
+    if (!checkSubtype(r0, EventTarget__C467356_VT)) failedCast(r0);
     s.tmp_0 = r0 = s.arg0;
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_1 = r0;
@@ -3629,12 +3629,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-EventTarget_constructor__P456101.info = {"start":520,"length":21,"line":17,"column":4,"endLine":18,"endColumn":5,"fileName":"main.ts","functionName":"inline","argumentNames":["this"]}
+EventTarget_constructor__P467407.info = {"start":520,"length":21,"line":17,"column":4,"endLine":18,"endColumn":5,"fileName":"main.ts","functionName":"inline","argumentNames":["this"]}
 
-function EventTarget_constructor__P456101_mk(s) {
+function EventTarget_constructor__P467407_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: EventTarget_constructor__P456101, depth: s.depth + 1,
+        parent: s, fn: EventTarget_constructor__P467407, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -39532,7 +39532,7 @@ const texteffects_TextEffect__C2831_VT = mkVTable({
     "set/getState": null,
   },
 });
-const WebSocket__C456048_VT = mkVTable({
+const WebSocket__C467354_VT = mkVTable({
   name: "WebSocket",
   numFields: 4,
   classNo: 21,
@@ -39549,25 +39549,25 @@ const WebSocket__C456048_VT = mkVTable({
     "set/_id": null,
     "_url": null,
     "set/_url": null,
-    "registerHandlers": WebSocket_registerHandlers__P456056,
-    "handleMessage": WebSocket_handleMessage__P456057,
-    "onerror": WebSocket_onerror__P456060,
-    "set/onerror": WebSocket_onerror__P456061,
-    "onmessage": WebSocket_onmessage__P456062,
-    "set/onmessage": WebSocket_onmessage__P456063,
-    "onopen": WebSocket_onopen__P456064,
-    "set/onopen": WebSocket_onopen__P456065,
-    "readyState": WebSocket_readyState__P456066,
-    "send": WebSocket_send__P456067,
-    "open": WebSocket_open__P456068,
-    "getOrCreateTypeListeners": EventTarget_getOrCreateTypeListeners__P456051,
-    "deleteTypeListener": EventTarget_deleteTypeListener__P456052,
-    "addEventListener": EventTarget_addEventListener__P456053,
-    "dispatchEvent": EventTarget_dispatchEvent__P456054,
-    "removeEventListener": EventTarget_removeEventListener__P456055,
+    "registerHandlers": WebSocket_registerHandlers__P467362,
+    "handleMessage": WebSocket_handleMessage__P467363,
+    "onerror": WebSocket_onerror__P467366,
+    "set/onerror": WebSocket_onerror__P467367,
+    "onmessage": WebSocket_onmessage__P467368,
+    "set/onmessage": WebSocket_onmessage__P467369,
+    "onopen": WebSocket_onopen__P467370,
+    "set/onopen": WebSocket_onopen__P467371,
+    "readyState": WebSocket_readyState__P467372,
+    "send": WebSocket_send__P467373,
+    "open": WebSocket_open__P467374,
+    "getOrCreateTypeListeners": EventTarget_getOrCreateTypeListeners__P467357,
+    "deleteTypeListener": EventTarget_deleteTypeListener__P467358,
+    "addEventListener": EventTarget_addEventListener__P467359,
+    "dispatchEvent": EventTarget_dispatchEvent__P467360,
+    "removeEventListener": EventTarget_removeEventListener__P467361,
   },
 });
-const EventTarget__C456050_VT = mkVTable({
+const EventTarget__C467356_VT = mkVTable({
   name: "EventTarget",
   numFields: 1,
   classNo: 20,
@@ -39578,14 +39578,14 @@ const EventTarget__C456050_VT = mkVTable({
   iface: {
     "listeners": null,
     "set/listeners": null,
-    "getOrCreateTypeListeners": EventTarget_getOrCreateTypeListeners__P456051,
-    "deleteTypeListener": EventTarget_deleteTypeListener__P456052,
-    "addEventListener": EventTarget_addEventListener__P456053,
-    "dispatchEvent": EventTarget_dispatchEvent__P456054,
-    "removeEventListener": EventTarget_removeEventListener__P456055,
+    "getOrCreateTypeListeners": EventTarget_getOrCreateTypeListeners__P467357,
+    "deleteTypeListener": EventTarget_deleteTypeListener__P467358,
+    "addEventListener": EventTarget_addEventListener__P467359,
+    "dispatchEvent": EventTarget_dispatchEvent__P467360,
+    "removeEventListener": EventTarget_removeEventListener__P467361,
   },
 });
-const Event__C456077_VT = mkVTable({
+const Event__C467383_VT = mkVTable({
   name: "Event",
   numFields: 1,
   classNo: 22,
@@ -39598,7 +39598,7 @@ const Event__C456077_VT = mkVTable({
     "set/type": null,
   },
 });
-const MessageEvent__C456075_VT = mkVTable({
+const MessageEvent__C467381_VT = mkVTable({
   name: "MessageEvent",
   numFields: 2,
   classNo: 23,
@@ -39613,7 +39613,7 @@ const MessageEvent__C456075_VT = mkVTable({
     "set/data": null,
   },
 });
-const CloseEvent__C456180_VT = mkVTable({
+const CloseEvent__C467486_VT = mkVTable({
   name: "CloseEvent",
   numFields: 2,
   classNo: 24,
@@ -40733,7 +40733,7 @@ const sprites_StaticObstacle__C2146_VT = mkVTable({
   },
 });
 
-const breakpoints = setupDebugger(1, ["WebSocket_OPEN___456070","CHANNEL___456199","OPEN_EVENT_TYPE___456088","MESSAGE_EVENT_TYPE___456072","ERROR_EVENT_TYPE___456092","nextId___456231","WebSocket_CLOSED___456249","WebSocket_CONNECTING___456301","CLOSE_EVENT_TYPE___456090"])
+const breakpoints = setupDebugger(1, ["WebSocket_OPEN___467376","CHANNEL___467505","OPEN_EVENT_TYPE___467394","MESSAGE_EVENT_TYPE___467378","ERROR_EVENT_TYPE___467398","nextId___467537","WebSocket_CLOSED___467555","WebSocket_CONNECTING___467607","CLOSE_EVENT_TYPE___467396"])
 
-return _main___P457053
+return _main___P468638
 })
