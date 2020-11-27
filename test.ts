@@ -12,7 +12,7 @@ control.runInParallel(function() {
     ws.onopen = () => {
         while(true) {
             console.log(`socket state: ${ws.readyState}`)
-            ws.send(JSON.stringify({ message: "hello from makecode", time: control.millis() }));    
+            ws.send(`makecode ${control.millis()}`);    
             pause(5000)
             ws.send(Buffer.fromArray([control.millis()]));
             pause(5000)
