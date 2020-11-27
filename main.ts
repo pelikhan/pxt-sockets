@@ -118,10 +118,11 @@ function getTransport(): Transport {
     return transport;
 }
 
+let nextId = 1;
 /** Provides the API for creating and managing a WebSocket connection to a server, as well as for sending and receiving data on the connection. */
 class WebSocket extends EventTarget {
     private _readyState: number;
-    private _id: number = undefined;
+    private _id: number = ++nextId % 0xff;
     private readonly _url: string;
 
     /**
@@ -145,22 +146,30 @@ class WebSocket extends EventTarget {
     private handleMessage(msg: Buffer) {
         console.log(msg.toString())
         const type = msg[0];
-        const id= msg[1];
+        const id = msg[1];
 
+        // check it's correct
         if (id !== this._id) {
-            console.log(`different socket`)
+            console.log(`different socket ${id} != ${this._id}`)
             return; // not for us
         }
 
-        if ((type & MESSAGE_MESSAGE) === MESSAGE_MESSAGE) {
+        // check opening
+        if (type === OPEN_MESSAGE) {
+            if (this._readyState !== WebSocket.CONNECTING)
+                throw "socket not connecting";
+
+            this._readyState = WebSocket.OPEN;
+            this.dispatchEvent(new Event(OPEN_EVENT_TYPE));
+            return;
+        } else if ((type & MESSAGE_MESSAGE) === MESSAGE_MESSAGE) {
+            if (this._readyState !== WebSocket.OPEN)
+                throw "socket not open"
+
             const isString = (msg[1] & STRING_DATA) == STRING_DATA;
             const dataBuffer = msg.slice(4);
             const data = isString ? dataBuffer.toString() : dataBuffer;
             this.dispatchEvent(new MessageEvent(data));
-        } else if (type === OPEN_MESSAGE) {
-            this._id = id;
-            this._readyState = WebSocket.OPEN;
-            this.dispatchEvent(new Event(OPEN_EVENT_TYPE));
         } else if (type === CLOSE_MESSAGE) {
             this._id = undefined;
             const code = msg.getNumber(NumberFormat.UInt32LE, 2);
@@ -252,9 +261,10 @@ class WebSocket extends EventTarget {
     private open() {
         // [open, url]
         const urlBuffer = Buffer.fromUTF8(this._url)
-        const msg = Buffer.create(1 + urlBuffer.length);
+        const msg = Buffer.create(2 + urlBuffer.length);
         msg[0] = OPEN_MESSAGE;
-        msg.write(1, urlBuffer);
+        msg[1] = this._id;
+        msg.write(2, urlBuffer);
         transport.send(msg);
         this._readyState = WebSocket.CONNECTING;
     }
