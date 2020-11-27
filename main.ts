@@ -111,7 +111,7 @@ let transport: Transport;
 function getTransport(): Transport {
     if (!transport) {
         transport = new Transport(
-            (msg) => control.simmessages.send(CHANNEL, msg),
+            (msg) => control.simmessages.send(CHANNEL, msg, true),
             (handler) => control.simmessages.onReceived(CHANNEL, handler)
         );         
     }
