@@ -15,7 +15,7 @@ namespace dom {
         if (!socket) {
             socket = new WebSocket(url);        
             // wait until socket is opened
-            pauseUntil(() => socket.readyState === WebSocket.OPEN);
+            pauseUntil(() => socket.readyState === WebSocket.OPEN, 30000);
         }
     }
 
@@ -43,7 +43,7 @@ namespace dom {
     //% blockId="wssonstringmessage" block="socket on string message received $msg"
     export function onStringMessageReceived(handler: (msg: string) => void) {
         open("");
-        socket.addEventHandler(MESSAGE_EVENT_TYPE, (evt: MessageEvent) => {
+        socket.addEventListener(MESSAGE_EVENT_TYPE, (evt: MessageEvent) => {
             const data = evt.data;
             if (handler && typeof data === "string")
                 handler(data as string);
@@ -56,7 +56,7 @@ namespace dom {
     //% blockId="wssonbuffermessage" block="socket on buffer message received $msg"
     export function onBufferMessage(handler: (msg: Buffer) => void) {
         open("");
-        socket.addEventHandler(MESSAGE_EVENT_TYPE, (evt: MessageEvent) => {
+        socket.addEventListener(MESSAGE_EVENT_TYPE, (evt: MessageEvent) => {
             const data = evt.data;
             if (handler && typeof data !== "string")
                 handler(data);

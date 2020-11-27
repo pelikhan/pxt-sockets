@@ -1,5 +1,5 @@
+console.log(`connecting to https://www.wss-websocket.net/`)
 const ws = new WebSocket("https://www.wss-websocket.net/")
-
 ws.onmessage = (msg) => {
     const data = msg.data;
     console.log(`message ${typeof data}`)
