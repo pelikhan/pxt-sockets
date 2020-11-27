@@ -15,15 +15,13 @@ control.runInParallel(function() {
                 const m = `makecode ${control.millis()}`;
                 console.log(`<-- ${m}`)
                 ws.send(m);    
-                pause(5000)
-                const b = Buffer.fromArray([control.millis()]);
-                console.log(`<-- ${b.toHex()}`)
-                ws.send(b);
-                pause(5000)
+                pause(1000)
             })
         }    
     }
 
+    pause(500)
+    
     {
         // binary tests
         const ws = new WebSocket("wss://echo.websocket.org")
@@ -37,7 +35,7 @@ control.runInParallel(function() {
                 const b = Buffer.fromArray([control.millis()]);
                 console.log(`<-- ${b.toHex()}`)
                 ws.send(b);
-                pause(5000)
+                pause(1000)
             })
         } 
     }
