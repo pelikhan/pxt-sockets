@@ -1,4 +1,4 @@
-namespace dom {
+namespace socket {
     let socket: WebSocket;
 
     /**
@@ -17,6 +17,14 @@ namespace dom {
             // wait until socket is opened
             pauseUntil(() => socket.readyState === WebSocket.OPEN, 30000);
         }
+    }
+
+    /**
+     * Gets the socket state
+     */
+    //% blockId="wssreadystate" block="socket ready state"
+    export function readyState() {
+        return socket ? socket.readyState : -1;
     }
 
     /**
@@ -54,7 +62,7 @@ namespace dom {
      * Registers a handler when a buffer message is received
     */
     //% blockId="wssonbuffermessage" block="socket on buffer message received $msg"
-    export function onBufferMessage(handler: (msg: Buffer) => void) {
+    export function onBufferMessageReceived(handler: (msg: Buffer) => void) {
         open("");
         socket.addEventListener(MESSAGE_EVENT_TYPE, (evt: MessageEvent) => {
             const data = evt.data;

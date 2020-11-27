@@ -92,8 +92,8 @@ class MessageEvent extends Event {
 
 const SEND_MESSAGE = 1 << 0;
 const CLOSE_MESSAGE = 1 << 1;
-const STATE_MESSAGE = 1 << 2;
-const MESSAGE_MESSAGE = 1 << 3;
+const MESSAGE_MESSAGE = 1 << 2;
+const OPEN_MESSAGE = 1 << 3;
 const STRING_DATA = 1 << 2;
 const BUFFER_DATA = 1 << 3;    
 
@@ -120,8 +120,8 @@ function getTransport(): Transport {
 
 /** Provides the API for creating and managing a WebSocket connection to a server, as well as for sending and receiving data on the connection. */
 class WebSocket extends EventTarget {
-    private _readyState: number = WebSocket.CLOSED;
-    private _id: string;
+    private _readyState: number;
+    private _id: number = undefined;
     private readonly _url: string;
 
     /**
@@ -131,6 +131,10 @@ class WebSocket extends EventTarget {
         super();        
         this._url = url;
         this.registerHandlers();
+        this._readyState = WebSocket.CLOSED;
+
+        // try to connect
+        this.open();
     }
 
     private registerHandlers() {
@@ -140,22 +144,25 @@ class WebSocket extends EventTarget {
 
     private handleMessage(msg: Buffer) {
         const type = msg[0];
-        if (type === STATE_MESSAGE) {
-            const state = msg[1];
-            if (state !== this._readyState) {
-                this._readyState = state;
-                switch(this._readyState) {
-                    case WebSocket.OPEN: this.dispatchEvent(new Event(OPEN_EVENT_TYPE)); break;
-                    case WebSocket.CLOSING: 
-                    case WebSocket.CONNECTING: break;
-                    case WebSocket.CLOSED: this.dispatchEvent(new CloseEvent(msg.getNumber(NumberFormat.UInt32LE, 1))); break;
-                }
-            }
-        } else if (type === MESSAGE_MESSAGE) {
-            const dataType = msg[1];
-            const dataBuffer = msg.slice(2);
+        const id= msg[1];
+
+        if (id !== this._id)
+            return; // not for us
+
+        if (type === MESSAGE_MESSAGE) {
+            const dataType = msg[2];
+            const dataBuffer = msg.slice(4);
             const data = dataType === STRING_DATA ? dataBuffer.toString() : dataBuffer;
             this.dispatchEvent(new MessageEvent(data));
+        } else if (type === OPEN_MESSAGE) {
+            this._id = id;
+            this._readyState = WebSocket.OPEN;
+            this.dispatchEvent(new Event(OPEN_EVENT_TYPE));
+        } else if (type === CLOSE_MESSAGE) {
+            this._id = undefined;
+            const code = msg.getNumber(NumberFormat.UInt32LE, 2);
+            this._readyState = WebSocket.CLOSED;
+            this.dispatchEvent(new CloseEvent(code));
         }
     }
 
@@ -194,6 +201,7 @@ class WebSocket extends EventTarget {
     get readyState(): number {
         return this._readyState;
     }
+
     /**
      * Returns the URL that was used to establish the WebSocket connection.
      */
@@ -205,10 +213,16 @@ class WebSocket extends EventTarget {
      * Closes the WebSocket connection, optionally using code as the the WebSocket connection close code and reason as the the WebSocket connection close reason.
      */
     close(code?: number): void {
-        const msg = Buffer.create(1 + 4);
+        if (this._readyState === WebSocket.CLOSED || this._readyState === WebSocket.CLOSING)
+            throw "trying to close a closed socket";
+
+        const msg = Buffer.create(2 + 4);
         msg[0] = CLOSE_MESSAGE;
+        msg[1] = this._id;
         if (code !== undefined)
-            msg.setNumber(NumberFormat.UInt32LE, 1, code);
+            msg.setNumber(NumberFormat.UInt32LE, 2, code);
+
+        this._readyState = WebSocket.CLOSING;
         transport.send(msg)
     }
 
@@ -216,13 +230,28 @@ class WebSocket extends EventTarget {
      * Transmits data using the WebSocket connection. data can be a string or a Buffer
      */
     send(data: string | Buffer): void {
-        const dataType = typeof data === "string" ? STRING_DATA : BUFFER_DATA;
+        if (this.readyState !== WebSocket.OPEN)
+            throw "trying to send on a closed socket";
+
+        const dataType = (typeof data === "string") ? STRING_DATA : BUFFER_DATA;
         const dataBuffer: Buffer = dataType === BUFFER_DATA ? (data as Buffer) : Buffer.fromUTF8(data as string);
-        const msg = Buffer.create(1 + dataBuffer.length);
+        // [send, id, data]
+        const msg = Buffer.create(2 + dataBuffer.length);
         msg[0] = SEND_MESSAGE | dataType;
-        msg.write(1, dataBuffer);
+        msg[1] = this._id;
+        msg.write(2, dataBuffer);
         // send message
         transport.send(msg);
+    }
+
+    private open() {
+        // [open, url]
+        const urlBuffer = Buffer.fromUTF8(this._url)
+        const msg = Buffer.create(1 + urlBuffer.length);
+        msg[0] = OPEN_MESSAGE;
+        msg.write(1, urlBuffer);
+        transport.send(msg);
+        this._readyState = WebSocket.CONNECTING;
     }
 
     static CLOSED: number = 3;
