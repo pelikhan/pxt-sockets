@@ -40,3 +40,11 @@ control.runInParallel(function() {
         } 
     }
 })
+
+control.runInParallel(function() {
+    socket.onStringMessageReceived(msg => console.log(`socket ${msg}`));
+    forever(function() {
+        socket.sendString('hello')
+        pause(500)
+    })
+})
