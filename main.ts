@@ -104,13 +104,19 @@ class Transport {
     ) {}
 }
 
-let transport: Transport = new Transport(
-    (msg) => control.simmessages.send("wss", msg),
-    (handler) => control.simmessages.onReceived("wss", function(msg: Buffer) {
-        if (handler)
-            handler(msg);
-    })
-)
+let transport: Transport;
+function getTransport(): Transport {
+    if (!transport) {
+        transport = new Transport(
+            (msg) => control.simmessages.send("wss", msg),
+            (handler) => control.simmessages.onReceived("wss", function(msg: Buffer) {
+                if (handler)
+                    handler(msg);
+            })
+        );         
+    }
+    return transport;
+}
 
 /** Provides the API for creating and managing a WebSocket connection to a server, as well as for sending and receiving data on the connection. */
 class WebSocket extends EventTarget {
@@ -122,29 +128,35 @@ class WebSocket extends EventTarget {
      * Creates a new web socket
      */
     constructor(url: string) {
-        super();
-        
+        super();        
         this._url = url;
-        transport.onReceived((msg: Buffer) => {
-            const type = msg[0];
-            if (type === STATE_MESSAGE) {
-                const state = msg[1];
-                if (state !== this._readyState) {
-                    this._readyState = state;
-                    switch(this._readyState) {
-                        case WebSocket.OPEN: this.dispatchEvent(new Event(OPEN_EVENT_TYPE)); break;
-                        case WebSocket.CLOSING: 
-                        case WebSocket.CONNECTING: break;
-                        case WebSocket.CLOSED: this.dispatchEvent(new CloseEvent(msg.getNumber(NumberFormat.UInt32LE, 1))); break;
-                    }
+        this.registerHandlers();
+    }
+
+    private registerHandlers() {
+        const t = getTransport();
+        t.onReceived(msg => this.handleMessage(msg));
+    }
+
+    private handleMessage(msg: Buffer) {
+        const type = msg[0];
+        if (type === STATE_MESSAGE) {
+            const state = msg[1];
+            if (state !== this._readyState) {
+                this._readyState = state;
+                switch(this._readyState) {
+                    case WebSocket.OPEN: this.dispatchEvent(new Event(OPEN_EVENT_TYPE)); break;
+                    case WebSocket.CLOSING: 
+                    case WebSocket.CONNECTING: break;
+                    case WebSocket.CLOSED: this.dispatchEvent(new CloseEvent(msg.getNumber(NumberFormat.UInt32LE, 1))); break;
                 }
-            } else if (type === MESSAGE_MESSAGE) {
-                const dataType = msg[1];
-                const dataBuffer = msg.slice(2);
-                const data = dataType === STRING_DATA ? dataBuffer.toString() : dataBuffer;
-                this.dispatchEvent(new MessageEvent(data));
             }
-        })
+        } else if (type === MESSAGE_MESSAGE) {
+            const dataType = msg[1];
+            const dataBuffer = msg.slice(2);
+            const data = dataType === STRING_DATA ? dataBuffer.toString() : dataBuffer;
+            this.dispatchEvent(new MessageEvent(data));
+        }
     }
 
     get onclose(): (evt?: CloseEvent) => void { return null; }
