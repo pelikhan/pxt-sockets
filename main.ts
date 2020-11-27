@@ -147,10 +147,8 @@ class WebSocket extends EventTarget {
         if (type === OPEN_MESSAGE) {
             if (this._readyState !== WebSocket.CONNECTING)
                 throw "socket not connecting";
-
             this._readyState = WebSocket.OPEN;
             this.dispatchEvent(new Event(OPEN_EVENT_TYPE));
-            return;
         } else if ((type & MESSAGE_MESSAGE) === MESSAGE_MESSAGE) {
             console.log(`handle message`)
             if (this._readyState !== WebSocket.OPEN)
@@ -168,6 +166,7 @@ class WebSocket extends EventTarget {
         } else if (type === ERROR_MESSAGE) {
             this.dispatchEvent(new Event(ERROR_EVENT_TYPE));
         }
+        console.log("done")
     }
 
     get onclose(): (evt?: CloseEvent) => void { return null; }

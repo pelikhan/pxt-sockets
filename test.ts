@@ -10,12 +10,12 @@ control.runInParallel(function() {
         console.log(data)
     }
     ws.onopen = () => {
-        while(true) {
+        forever(() => {
             console.log(`socket state: ${ws.readyState}`)
             ws.send(`makecode ${control.millis()}`);    
             pause(5000)
             ws.send(Buffer.fromArray([control.millis()]));
             pause(5000)
-        }
+        })
     }    
 })
