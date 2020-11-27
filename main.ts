@@ -143,9 +143,9 @@ class WebSocket extends EventTarget {
     }
 
     private handleMessage(msg: Buffer) {
-        console.log(msg.toString())
         const type = msg[0];
         const id = msg[1];
+        console.log(`msg type ${type} id ${id}`)
 
         // check it's correct
         if (id !== this._id) {
