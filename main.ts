@@ -92,13 +92,12 @@ class MessageEvent extends Event {
 
 // keep in sync with JS
 const CHANNEL = "wss"
-const SEND_MESSAGE = 1 << 0;
-const CLOSE_MESSAGE = 1 << 1;
-const MESSAGE_MESSAGE = 1 << 2;
-const OPEN_MESSAGE = 1 << 3;
-const ERROR_MESSAGE = 1 << 4;
-const STRING_DATA = 1 << 5;
-const BUFFER_DATA = 1 << 6;
+const CLOSE_MESSAGE = 1 << 0;
+const MESSAGE_MESSAGE = 1 << 1;
+const OPEN_MESSAGE = 1 << 2;
+const ERROR_MESSAGE = 1 << 3;
+const STRING_DATA = 1 << 4;
+const BUFFER_DATA = 1 << 5;
 
 class Transport {        
     constructor(
@@ -251,7 +250,7 @@ class WebSocket extends EventTarget {
         const dataBuffer: Buffer = dataType === BUFFER_DATA ? (data as Buffer) : Buffer.fromUTF8(data as string);
         // [send, id, data]
         const msg = Buffer.create(2 + dataBuffer.length);
-        msg[0] = SEND_MESSAGE | dataType;
+        msg[0] = MESSAGE_MESSAGE | dataType;
         msg[1] = this._id;
         msg.write(2, dataBuffer);
         // send message
