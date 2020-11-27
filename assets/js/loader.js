@@ -4,6 +4,14 @@ function addSimMessageHandler(channel, handler) {
     channelHandlers[channel] = handler;
 }
 
+function uint8ArrayToString(input) {
+    let len = input.length;
+    let res = ""
+    for (let i = 0; i < len; ++i)
+        res += String.fromCharCode(input[i]);
+    return res;
+}
+
 function makeCodeRun(options) {
     var code = "";
     var isReady = false;
@@ -110,14 +118,7 @@ function makeCodeRun(options) {
         }            
     }, false);
 
-    // helpers
-    function uint8ArrayToString(input) {
-        let len = input.length;
-        let res = ""
-        for (let i = (offset || 0); i < len; ++i)
-            res += String.fromCharCode(input[i]);
-        return res;
-    }            
+    // helpers         
 
     function setState(st) {
         var r = document.getElementById("root");
