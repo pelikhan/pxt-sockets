@@ -125,9 +125,7 @@ class WebSocket extends EventTarget {
     }
 
     private registerHandlers() {
-        console.log(`register`)
         control.simmessages.onReceived(CHANNEL, (msg: Buffer) => {
-            console.log(`channel msg`)
             this.handleMessage(msg);
         })
     }
@@ -135,7 +133,6 @@ class WebSocket extends EventTarget {
     private handleMessage(msg: Buffer) {
         const type = msg[0];
         const id = msg[1];
-        console.log(`msg type ${type} id ${id}`)
 
         // check it's correct
         if (id !== this._id) {
@@ -166,7 +163,6 @@ class WebSocket extends EventTarget {
         } else if (type === ERROR_MESSAGE) {
             this.dispatchEvent(new Event(ERROR_EVENT_TYPE));
         }
-        console.log("done")
     }
 
     get onclose(): (evt?: CloseEvent) => void { return null; }
