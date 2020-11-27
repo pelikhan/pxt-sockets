@@ -23,22 +23,22 @@ document.addEventListener("DOMContentLoaded", function () {
             sockets[id].close();
             delete sockets[id];
         }
-        console.log(`open ${url} -> ${id}`)
+        console.log(`${id}: open ${url} -> ${id}`)
         const ws = sockets[id] = new WebSocket(url);
         ws.onerror = (e) => {
             const data = new Uint8Array([ERROR_MESSAGE, id])
-            console.log(`error`, { data })
+            console.log(`${id}: error`, { data })
             proxy(data)
         }
         ws.onopen = () => {
             const data = new Uint8Array([OPEN_MESSAGE, id]);
-            console.log(`open`, { data })
+            console.log(`${id}: open`, { data })
             proxy(data)
         }
         ws.onclose = (e) => {
             const code = e.code;
             const data = new Uint8Array([CLOSE_MESSAGE, id, (code >> 24) & 0xff, (code >> 16) & 0xff, (code >> 8) & 0xff, code & 0xff]);
-            console.log(`close`, { data })
+            console.log(`${id}: close`, { data })
             proxy(data)
         }
         ws.onmessage = async (e) => {
@@ -64,33 +64,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 for (let i = 0; i < d.length; ++i)
                     data[i + 2] = d[i];
             }
-            console.log(`message`, { e, data })
             proxy(data)
         }
     }
 
     addSimMessageHandler("wss", (msg) => {
-        console.log(msg)
         const type = msg[0]
         const id = msg[1];
-        console.log({ type, id })
 
         if (type === OPEN_MESSAGE) {
-            console.log("open")
             const url = uint8ArrayToString(msg.slice(2))
             openSocket(id, url)
         } else if ((type & MESSAGE_MESSAGE) == MESSAGE_MESSAGE) {
-            console.log("message")
             const socket = sockets[id];
             if (!socket) {
-                console.log(`socket not found`, { id })
+                console.warning(`socket not found`, { id })
                 return;
             }
 
             let data = msg.slice(2);
             if ((type & STRING_DATA) === STRING_DATA)
                 data = uint8ArrayToString(data);
-            console.log(`send`, { data })
             socket.send(data);
         }
     })
