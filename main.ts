@@ -140,7 +140,7 @@ class WebSocket extends EventTarget {
 
         // check it's correct
         if (id !== this._id)
-            throw `wrong socket`
+            throw `wrong socket ${this._id} !== ${id}`
 
         // check opening
         if (type === OPEN_MESSAGE) {
