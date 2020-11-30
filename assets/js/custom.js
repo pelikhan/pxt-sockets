@@ -26,22 +26,29 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`${id}: open ${url} -> ${id}`)
         const ws = sockets[id] = new WebSocket(url);
         ws.onerror = (e) => {
+            if (sockets[id] !== ws) return; // outdated message
+
             const data = new Uint8Array([ERROR_MESSAGE, id])
             console.log(`${id}: error`, { data })
             proxy(data)
         }
         ws.onopen = () => {
+            if (sockets[id] !== ws) return; // outdated message
+
             const data = new Uint8Array([OPEN_MESSAGE, id]);
             console.log(`${id}: open`, { data })
             proxy(data)
         }
         ws.onclose = (e) => {
+            if (sockets[id] !== ws) return; // outdated message
             const code = e.code;
             const data = new Uint8Array([CLOSE_MESSAGE, id, (code >> 24) & 0xff, (code >> 16) & 0xff, (code >> 8) & 0xff, code & 0xff]);
             console.log(`${id}: close`, { data })
             proxy(data)
         }
         ws.onmessage = async (e) => {
+            if (sockets[id] !== ws) return; // outdated message
+
             let d = e.data;
             const isstring = typeof d === "string";
             // blob/arraybuffer -> uint8array
@@ -93,12 +100,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const d = ev.data
         if (d.type === "simulator" && d.command === "restart") {
             // clean out sockets
-            Object.keys(sockets).forEach(id => {
+            const temp = sockets;
+            sockets = {};
+            Object.keys(temp).forEach(id => {
                 try {
-                    sockets[id].close();
+                    temp[id].close();
                 } catch (e) { }
             });
-            sockets = {};
         }
     });
 })
