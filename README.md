@@ -12,6 +12,15 @@ This repository can be added as an **extension** in MakeCode.
 * click on **Extensions** under the gearwheel menu
 * search for **https://github.com/pelikhan/pxt-sockets** and import
 
+Updating your GitHub pages
+
+* Commit your changes and create a new release in GitHub
+* Add the following line in your ``index.html`` page at the end of the ``head`` tag.
+
+```
+<script src="https://pelikhan.github.io/pxt-sockets/assets/js/custom.js" />
+```
+
 #### Metadata (used for search, rendering)
 
 * for PXT/arcade
