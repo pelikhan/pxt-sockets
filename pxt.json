@@ -1,6 +1,6 @@
 {
     "name": "pxt-sockets",
-    "version": "0.0.22",
+    "version": "0.0.23",
     "description": "A low level library to mimic WebSockets in MakeCode Arcade",
     "dependencies": {
         "device": "*"
