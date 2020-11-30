@@ -88,4 +88,17 @@ document.addEventListener("DOMContentLoaded", function () {
             socket.send(data);
         }
     })
+
+    window.addEventListener('message', function (ev) {
+        const d = ev.data
+        if (d.type === "simulator" && d.command === "restart") {
+            // clean out sockets
+            Object.keys(sockets).forEach(id => {
+                try {
+                    sockets[id].close();
+                } catch (e) { }
+            });
+            sockets = {};
+        }
+    });
 })
